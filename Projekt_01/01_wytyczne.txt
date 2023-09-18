@@ -1,1 +1,61 @@
-1. Utwórz 
+== Github
+1. Zaloguj siê na konto w GitHub
+2. PrzejdŸ do zak³adki Respositories
+3. Kliknij przycisk New
+4. Jako nazwê repozytorium wpisz: ZSK_P[numerprojektu]_[klasa]_[imie]_[nazwisko]
+	Przyk³ad: ZSK_P01_4A_Jan_Kowalski
+5. Oznacz repozytorium jako Prywatne, w sekcji "Add .gitignore" wybierz z listy VisualStudio
+6. Kliknij Create repository
+7. Kliknij w zielony przycisk "Code" i skopiuj adres do repozytorium
+
+
+== Ekplorator plików
+1. Utwórz w swojej lokalizacji na dysku folder, w którym przechowywaæ bêdziesz kod
+2. Otwórz Visual Studio i wybierz opcjê "Clone a repository"
+3. Sklonuj repozytorium do utworzonej lokalizacji na dysku
+4. PrzejdŸ do lokalizacji na dysku
+5. Powinieneœ widzieæ plik .gitignore
+6. Wybierz opcjê File -> New -> Project, w górnej sekcji "Search for templates" wpisz "solution" i wybierz opcjê "Blank solution"
+7. Nazwij solucjê "Projekty" i jako folder wska¿ swój folder, kliknij "Create"
+8. W zak³adce "Git changes" powinieneœ widzieæ jedn¹ zmianê do zacommitowania
+9. Dodaj komentarz do commita, np. "Inicjalizacja repozytoruium" i wybierz opcjê Commit All
+10. W zak³adce "Git changes" powinieneœ widzieæ opcjê "View all commits", po jej klikniêciu powinieneœ widzieæ listê lokalnych commitów
+11. Kliknij opcjê "Push"
+12. Od tej chwili Twoja solucja bêdzie ju¿ w sieci na GitHub
+
+
+== Visual Studio:
+1. Wybierz opcjê File -> Open -> Project/Solution
+2. Wyszukaj plik Projekty.sln w swoim folderze i otwórz go
+3. W utworzonej solucji utwórz folder "Projekt_01"
+4. W utworzonym folderze stwórz nowy projekt WinForms o nazwie "Projekt01UI"
+5. Umieœæ na g³ównej formatce kontrolki:
+	a. label (x5)
+	b. textBox (x4)
+	c. richTextBox (x1)
+	d. buton (x1)
+6. Formatka powinna wygl¹daæ mniej wiêcej tak jak na zrzucie 01_UI.png
+7. Oprogramuj zdarzenie klikniêcia przycisku „PrzeprowadŸ analizê” tak, aby po klikniêciu tekst wpisany w richTextBox poddawany by³ analizie po zakoñczeniu której w poszczególnych textBoxach wyœwietlone zostan¹:
+	a. D³ugoœæ tekstu
+	b. Informacja o tym, czy w tekœcie wystêpuj¹ litery (a-z, A-Z) [TAK/NIE]
+	c. Informacja o tym, czy w tekœcie wystêpuj¹ cyfry [TAK/NIE]
+	d. Informacja o tym, czy w tekœcie wystêpuj¹ znaki specjalne [TAK/NIE]
+8. Zacommituj swoje zmiany na repozytorium (pamiêtaj o klikniêciu Push, aby zmiany wys³aæ do sieci)
+
+
+== Zadanie domowe
+1. Zapoznaj siê z kolekcj¹ Dictionary
+	a) https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-7.0
+	b) https://dotnettutorials.net/lesson/dictionary-generic-collection-csharp/
+
+
+== Zadanie dla chêtnego
+W solucji w folderze "Lekcja_02" zawarty bêdzie przyk³ad prezentowany na lekcji.
+Trzy guziki po prawej "Dodatkowe 1", "Dodatkowe 2", "Dodatkowe 3" prezentuj¹ ró¿ne podejœcie do sk³adania wielu stringów w jeden.
+Nale¿y przygotowaæ krótkie wyjaœnienie:
+- dlaczego sk³adanie stringów z wykorzystaniem += jest wolne
+- na jakiej zasadzie dzia³a StringBuilder, dlaczego tak znacz¹co przyspiesza sk³adanie stringów.
+	Przydatne Ÿród³a:
+	https://www.stevejgordon.co.uk/how-does-the-stringbuilder-work-in-dotnet-part-1-why-do-we-need-a-stringbuilder-and-when-should-we-use-one
+	https://www.stevejgordon.co.uk/how-does-the-stringbuilder-work-in-dotnet-part-2-understanding-the-overhead
+	https://www.stevejgordon.co.uk/how-does-the-stringbuilder-work-in-net-part-3-how-appending-works-and-the-stringbuilder-expands
