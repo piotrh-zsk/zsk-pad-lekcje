@@ -11,6 +11,12 @@ Nazwy swoich kont na GitHub nale¿y przes³aæ na maila:
 	krzysztof.gapski@zsk.poznan.pl
 
 
-Globalne konto GIT:
-	user: zsk-global
+GMAIL:
+	adres: zskglobalpad@gmail.com
+	user: zskglobalpad
+	pass: zsk123!@#
+
+GITHUB:
+	email: zskglobalpad@gmail.com
+	user: zskglobalpad
 	pass: zsk123!@#
