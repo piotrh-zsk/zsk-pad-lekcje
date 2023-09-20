@@ -16,6 +16,7 @@
 4. PrzejdŸ do lokalizacji na dysku
 5. Powinieneœ widzieæ plik .gitignore
 6. Wybierz opcjê File -> New -> Project, w górnej sekcji "Search for templates" wpisz "solution" i wybierz opcjê "Blank solution"
+	a) uwaga, je¿eli VS nie podpowiada projektu typu Blank Solution patrz plik VS_blank_solution.docx
 7. Nazwij solucjê "Projekty" i jako folder wska¿ swój folder, kliknij "Create"
 8. W zak³adce "Git changes" powinieneœ widzieæ jedn¹ zmianê do zacommitowania
 9. Dodaj komentarz do commita, np. "Inicjalizacja repozytoruium" i wybierz opcjê Commit All
@@ -59,3 +60,4 @@ Nale¿y przygotowaæ krótkie wyjaœnienie:
 	https://www.stevejgordon.co.uk/how-does-the-stringbuilder-work-in-dotnet-part-1-why-do-we-need-a-stringbuilder-and-when-should-we-use-one
 	https://www.stevejgordon.co.uk/how-does-the-stringbuilder-work-in-dotnet-part-2-understanding-the-overhead
 	https://www.stevejgordon.co.uk/how-does-the-stringbuilder-work-in-net-part-3-how-appending-works-and-the-stringbuilder-expands
+

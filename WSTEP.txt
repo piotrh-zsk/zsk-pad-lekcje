@@ -9,3 +9,8 @@ Nazwy swoich kont na GitHub nale¿y przes³aæ na maila:
 
 	piotr.hamrol@zsk.poznan.pl
 	krzysztof.gapski@zsk.poznan.pl
+
+
+Globalne konto GIT:
+	user: zsk-global
+	pass: zsk123!@#
