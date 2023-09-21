@@ -32,6 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lekcja_02", "Lekcja_02", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dokumenty", "Dokumenty", "{109C0368-3425-4AF4-BD02-2B00551A5487}"
 	ProjectSection(SolutionItems) = preProject
+		Dokumenty\Logowanie_VS_do_GIT.docx = Dokumenty\Logowanie_VS_do_GIT.docx
 		Dokumenty\Obsluga_GIT_z_VS.docx = Dokumenty\Obsluga_GIT_z_VS.docx
 		Dokumenty\VS_blank_solution.docx = Dokumenty\VS_blank_solution.docx
 	EndProjectSection
