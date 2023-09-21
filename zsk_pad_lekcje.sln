@@ -21,7 +21,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_01", "Etap_01", "{DAB0
 	ProjectSection(SolutionItems) = preProject
 		Projekt_01\01_UI.png = Projekt_01\01_UI.png
 		Projekt_01\01_wytyczne.txt = Projekt_01\01_wytyczne.txt
-		Projekt_01\VS_blank_solution.docx = Projekt_01\VS_blank_solution.docx
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{17C175B6-DD97-48AD-8C9E-F39D6B587564}"
@@ -30,6 +29,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lekcja_02", "Lekcja_02", "{FFA4DF15-179B-409D-9AB8-5D2268E83257}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dokumenty", "Dokumenty", "{109C0368-3425-4AF4-BD02-2B00551A5487}"
+	ProjectSection(SolutionItems) = preProject
+		Dokumenty\VS_blank_solution.docx = Dokumenty\VS_blank_solution.docx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
