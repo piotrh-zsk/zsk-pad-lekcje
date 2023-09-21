@@ -36,6 +36,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dokumenty", "Dokumenty", "{
 		Dokumenty\VS_blank_solution.docx = Dokumenty\VS_blank_solution.docx
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lekcja_02_Przyklady", "Lekcja_02_Przyklady\Lekcja_02_Przyklady.csproj", "{9DA0C911-5221-4463-9DD1-4E53DA3C101B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{57AB4AEB-1046-4C24-AB60-CC17D3E94ADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57AB4AEB-1046-4C24-AB60-CC17D3E94ADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57AB4AEB-1046-4C24-AB60-CC17D3E94ADD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DA0C911-5221-4463-9DD1-4E53DA3C101B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DA0C911-5221-4463-9DD1-4E53DA3C101B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DA0C911-5221-4463-9DD1-4E53DA3C101B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DA0C911-5221-4463-9DD1-4E53DA3C101B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +79,7 @@ Global
 		{7B351D53-010B-4806-81FA-73E7F273BC20} = {D1E25498-F36C-48DA-8FC8-624EBC9D2B10}
 		{57AB4AEB-1046-4C24-AB60-CC17D3E94ADD} = {D1E25498-F36C-48DA-8FC8-624EBC9D2B10}
 		{DAB0A61A-B972-4421-A5C0-F11F5D07CA4E} = {C72904D3-52F2-4BBF-AFFA-5F260E87B172}
+		{9DA0C911-5221-4463-9DD1-4E53DA3C101B} = {FFA4DF15-179B-409D-9AB8-5D2268E83257}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1A0E135-6C1C-4384-8761-A8AF8E3EE9A3}
