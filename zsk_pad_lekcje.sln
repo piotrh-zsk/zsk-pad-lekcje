@@ -37,7 +37,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dokumenty", "Dokumenty", "{
 		Dokumenty\VS_blank_solution.docx = Dokumenty\VS_blank_solution.docx
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lekcja_02_Przyklady", "Lekcja_02_Przyklady\Lekcja_02_Przyklady.csproj", "{9DA0C911-5221-4463-9DD1-4E53DA3C101B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lekcja_02_Przyklady", "Lekcja_02_Przyklady\Lekcja_02_Przyklady.csproj", "{9DA0C911-5221-4463-9DD1-4E53DA3C101B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_02", "Etap_02", "{8050D28A-ED18-4F5E-97BA-89563650C916}"
+	ProjectSection(SolutionItems) = preProject
+		Projekt_01\02_wytyczne.txt = Projekt_01\02_wytyczne.txt
+		Projekt_01\cleanarchitecture.png = Projekt_01\cleanarchitecture.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +87,7 @@ Global
 		{57AB4AEB-1046-4C24-AB60-CC17D3E94ADD} = {D1E25498-F36C-48DA-8FC8-624EBC9D2B10}
 		{DAB0A61A-B972-4421-A5C0-F11F5D07CA4E} = {C72904D3-52F2-4BBF-AFFA-5F260E87B172}
 		{9DA0C911-5221-4463-9DD1-4E53DA3C101B} = {FFA4DF15-179B-409D-9AB8-5D2268E83257}
+		{8050D28A-ED18-4F5E-97BA-89563650C916} = {C72904D3-52F2-4BBF-AFFA-5F260E87B172}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1A0E135-6C1C-4384-8761-A8AF8E3EE9A3}

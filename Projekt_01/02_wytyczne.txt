@@ -1,0 +1,115 @@
+Przydatne linki:
+https://blog.ndepend.com/clean-architecture-for-asp-net-core-solution/
+https://www.ssw.com.au/rules/rules-to-better-clean-architecture/
+
+Aktualny stan projektu posiada kilka wad. Jedn¹ z nich jest fakt, ¿e logika biznesowa
+(analiza tekstu) odbywa siê wprost pod zdarzeniem klikniêcia w przycisk, w tej samej
+warstwie.
+Problemy jakie to za sob¹ niesie:
+- koniecznoœæ implementowania wszystkiego od podstaw w przypadku chêci zmiany UI (np. zmiany z
+aplikacji desktopowej na www)
+- problem z wspó³dzieleniem kodu
+- problem z testowaniem kodu
+- itd.
+
+By efektywnie rozwi¹zywaæ tego typu problemy po pomoc przychodz¹ nam wzorce architektoniczne.
+
+Umiejêtnoœæ porz¹dkowania kodu, dzielenia go na mniejsze projekty i sekcje, ustawiania
+odpowiednich zale¿noœci, itd. jest kluczowa przy rozwijaniu du¿ych systemów.
+
+Postaramy siê podzieliæ projekt na szereg mniejszych elementów, tak by sumaryczny efekt by³
+bardziej czytelny, a przede wszystkim ³atwiejszy w dalszym rozwijaniu.
+
+1. Przyjmijmy, ¿e Twój projekt nazywa siê aktualnie "projekt1" (je¿eli jest inaczej po prostu
+dopasuj odpowiednio nazwy przechodz¹c tê instrukcjê).
+
+2. Utwórz w tym samym folderze dwa nowe projekty typu Class Library. Uwaga! Je¿eli projekt
+Win Forms stworzony zosta³ jako .Net 6/7 to w tej samej technologii utwórz nowe projekty.
+Je¿eli projekt Win Forms stworzony zosta³ jako .Net Framework, wtedy równie¿ jako
+.Net Framework stwórz nowe projekty. Aby sprawdziæ w jakiej technologii jest stworzony
+aktualny projekt kliknij prawym przyciskiem myszy na projekt i przejdŸ do Properties.
+W sekcji Application sprawdŸ co masz wpisane w okienku Target Framework.
+
+3. Dwa nowe projekty powinny nazywaæ siê odpowiednio:
+	projekt1.Core
+	projekt1.Shared
+
+4. W projekcie projekt1.Core kliknij prawym przyciskiem myszy na References i dodaj referencjê
+do projektu projekt1.Shared
+
+5. W projekcie projekt1 kliknij prawym przyciskiem myszy na References i dodaj referencjê
+zarówno do projektu projekt1.Core oraz projekt1.Shared
+
+6. Projekt Shared zawieraæ bêdzie ma³e obiekty wspó³dzielone w ca³ym systemie. Mog¹ to byæ stosowane
+pomiêdzy ró¿nymi warstwami struktury danych, interfejsy, itp.
+a) utwórz w projekcie folder o nazwie Entities, i wewn¹trz niego klasê "TextAnalyzeResult". Klasa ta
+powinna zawieraæ pola przechowuj¹ce wyniki analizy, czyli d³ugoœæ tekstu, oraz informacje o zawieraniu
+liter, cyfr i znaków specjalnych.
+b) utwórz w projekcie folder o nazwie Interfaces, i wewn¹trz niego interfejs o nazwie "ITextAnalyzerService".
+Interfejs powinien definiowaæ jedn¹ metodê o nazwie PerformAnalysis, metoda powinna zwracaæ wynik typu
+TextAnalyzeResult oraz przyjmowaæ parametr wejœciowy typu string o nazwie text
+
+7. Projekt Core zawieraæ bêdzie g³ówn¹ i najwa¿niejsz¹ logikê biznesow¹. W naszym przypadku bêdzie ni¹ kod analizuj¹cy
+podany tekst. Projekt ten skupia siê jedynie na przetwarzaniu danych i zwracaniu wyników. Nie zajmuje siê on prezentacj¹
+danych, nie ma nawet dostêpu do kontrolek, które do prezentacji danych s³u¿¹.
+
+8. W projekcie Core utwórz folder Services, a wewn¹trz niego klasê o nazwie TextAnalyzerService. Powinna byæ
+to klasa, która implementuje utworzony wczeœniej interfejs. Przenieœ do metody PerformAnalysis swój kod
+analizuj¹cy tekst. Oczywiœcie kod nale¿y dopasowaæ, nie bêdzie on mia³ bowiem dostêpu bezpoœrednio do kontrolek.
+
+9. Na tym etapie projekt Win Forms jest ju¿ jedynie nak³adk¹ prezentuj¹c¹ dane, przyjmuj¹c¹ polecenia od u¿ytkownika,
+ogólnie zarz¹dzaj¹c¹ przebiegiem wykonywania ca³ego programu. Nie jest œciœle powi¹zana z bibliotekami analizuj¹cymi dane.
+Gdybyœmy chcieli zmieniæ aplikacjê okienkow¹ na aplikacjê typu Web, wystarczy³oby zmieniæ jedynie ten projekt. Projekty Core
+móg³by pozostaæ bez zmian.
+
+10. W g³ównym projekcie (Win Forms) utwórz nowy folder o nazwie Presenters, wewn¹trz niego stwórz klasê o nazwie
+TextAnalyzerDataPresenter. Konstruktor klasy powinien przyjmowaæ jak parametr 5 textboxów, odpowiednio do
+prezentowania d³ugoœci tekstu, informacji o literach, cyfrach, znakach specjalnych i dodatkowy textbox, wyœwietlaj¹cy
+czas wykonywania kodu.
+
+11. Przyjête kontrolki/parametry pozinny zostaæ przekazane do prywatnych pól wewn¹trz klasy:
+        private TextBox _tb_Length;
+        private TextBox _tb_Letters;
+        private TextBox _tb_Digits;
+        private TextBox _tb_Special;
+        private TextBox _tb_Time;
+
+12. Utwórz dodatkowe prywatne pole typu ITextAnalyzerService (intefejs):
+
+        private ITextAnalyzerService _textAnalyzerService;
+
+a nastêpnie nadaj jej wartoœæ w konstruktorze klasy przpisuj¹c jako wartoœæ utworzony obiekt typu TextAnalyzerService.
+
+13. Utwórz dodatkowo w klasie metodê PerformTextAnalysis:
+
+        public void PerformTextAnalysis(string text)
+        {
+            // przeprowadzenie analizy
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            var result = _textAnalyzerService.PerformAnalysis(text);
+            sw.Stop();
+
+            // drukowanie wyników
+            _tb_Length.Text = result.TextLength.ToString();
+            _tb_Letters.Text = result.ContainsLetters ? "TAK" : "NIE";
+            _tb_Digits.Text = result.ContainsDigits ? "TAK" : "NIE";
+            _tb_Special.Text = result.ContainsSpecial ? "TAK" : "NIE";
+            _tb_Time.Text = sw.ElapsedMilliseconds.ToString();
+        }
+
+15. W kodzie g³ównej formatki dodaj prywatne pole:
+
+        private TextAnalyzerDataPresenter textAnalyzerDataPresenter;
+
+14. Na designerze g³ównej formatki kliknij dwukrotnie gdzieœ w w pustym obszarze formatki. Powinno to
+wygenerowaæ automatycznie obs³ugê zdarzenia FormLoad. Wewn¹trz tego zdarzenia nadaj wartoœæ
+powy¿szemu polu:
+
+            textAnalyzerDataPresenter = new TextAnalyzerDataPresenter(textBox1, textBox2, textBox3, textBox4, textBox5);
+
+15. Zmien dotychczasow¹ obs³uge zdarzenia klikniêcia w przycisk na proste wywo³anie metody
+PerformTextAnalysis:
+
+
+            textAnalyzerDataPresenter.PerformTextAnalysis(richTextBox1.Text);
