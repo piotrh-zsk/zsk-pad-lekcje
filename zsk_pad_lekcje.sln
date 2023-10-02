@@ -19,8 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projekt_01", "Projekt_01", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_01", "Etap_01", "{DAB0A61A-B972-4421-A5C0-F11F5D07CA4E}"
 	ProjectSection(SolutionItems) = preProject
-		Projekt_01\01_UI.png = Projekt_01\01_UI.png
-		Projekt_01\01_wytyczne.txt = Projekt_01\01_wytyczne.txt
+		Projekt_01\Etap_01\01_UI.png = Projekt_01\Etap_01\01_UI.png
+		Projekt_01\Etap_01\01_wytyczne.txt = Projekt_01\Etap_01\01_wytyczne.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{17C175B6-DD97-48AD-8C9E-F39D6B587564}"
@@ -41,8 +41,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lekcja_02_Przyklady", "Lekc
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_02", "Etap_02", "{8050D28A-ED18-4F5E-97BA-89563650C916}"
 	ProjectSection(SolutionItems) = preProject
-		Projekt_01\02_wytyczne.txt = Projekt_01\02_wytyczne.txt
-		Projekt_01\cleanarchitecture.png = Projekt_01\cleanarchitecture.png
+		Projekt_01\Etap_02\02_wytyczne.txt = Projekt_01\Etap_02\02_wytyczne.txt
+		Projekt_01\Etap_02\cleanarchitecture.png = Projekt_01\Etap_02\cleanarchitecture.png
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lekcja_03", "Lekcja_03", "{41334EB7-A751-4126-A74C-74B43FAD9D10}"
@@ -56,6 +56,23 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lekcja_04", "Lekcja_04", "{5981CCD0-F085-480E-93F5-6F4BE7CBE0D7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lekcja_04", "Lekcja_04\Lekcja_04.csproj", "{72A17E3D-A0AD-4B5E-89D4-E8B462A825CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_03", "Etap_03", "{C1315EF8-0164-4F9D-8628-7D4C29A8E8E8}"
+	ProjectSection(SolutionItems) = preProject
+		Projekt_01\Etap_03\03_1_interfejs.png = Projekt_01\Etap_03\03_1_interfejs.png
+		Projekt_01\Etap_03\03_2_iloscinformacji.jpg = Projekt_01\Etap_03\03_2_iloscinformacji.jpg
+		Projekt_01\Etap_03\03_3_entropia.jpg = Projekt_01\Etap_03\03_3_entropia.jpg
+		Projekt_01\Etap_03\03_4_pantadeusz.txt = Projekt_01\Etap_03\03_4_pantadeusz.txt
+		Projekt_01\Etap_03\03_5_pantadeusz_statystyki.txt = Projekt_01\Etap_03\03_5_pantadeusz_statystyki.txt
+		Projekt_01\Etap_03\03_6_wynikdzialania.png = Projekt_01\Etap_03\03_6_wynikdzialania.png
+		Projekt_01\Etap_03\03_wytyczne.txt = Projekt_01\Etap_03\03_wytyczne.txt
+		Projekt_01\Etap_03\BaseTextStatisticsService.cs = Projekt_01\Etap_03\BaseTextStatisticsService.cs
+		Projekt_01\Etap_03\ITextStatisticsService.cs = Projekt_01\Etap_03\ITextStatisticsService.cs
+		Projekt_01\Etap_03\SymbolPrintingData.cs = Projekt_01\Etap_03\SymbolPrintingData.cs
+		Projekt_01\Etap_03\SymbolStatisticsData.cs = Projekt_01\Etap_03\SymbolStatisticsData.cs
+		Projekt_01\Etap_03\TextPrintingData.cs = Projekt_01\Etap_03\TextPrintingData.cs
+		Projekt_01\Etap_03\TextStatisticsData.cs = Projekt_01\Etap_03\TextStatisticsData.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -120,6 +137,7 @@ Global
 		{58C746F5-1C63-4149-A8ED-9C17CA230063} = {41334EB7-A751-4126-A74C-74B43FAD9D10}
 		{1BA8C70B-7ACD-461F-A56B-4D84B0C56026} = {41334EB7-A751-4126-A74C-74B43FAD9D10}
 		{72A17E3D-A0AD-4B5E-89D4-E8B462A825CA} = {5981CCD0-F085-480E-93F5-6F4BE7CBE0D7}
+		{C1315EF8-0164-4F9D-8628-7D4C29A8E8E8} = {C72904D3-52F2-4BBF-AFFA-5F260E87B172}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1A0E135-6C1C-4384-8761-A8AF8E3EE9A3}

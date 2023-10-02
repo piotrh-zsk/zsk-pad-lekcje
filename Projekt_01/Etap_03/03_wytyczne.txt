@@ -1,0 +1,118 @@
+Interfejs aktualnej aplikacji należy przerobić tak, aby wyglądał mniej więcej tak jak na obrazku:
+
+03_1_interfejs.png
+
+Oczywiście kwestia rozmieszczenia elementów oraz ich wygląd jest w pełni po Twojej stronie. Grunt, aby interfejs zawierał widoczne elementy.
+
+Oprogramuj przycisk "Przeprowadź analizę" tak, aby po jego wciśnięciu pojawiło się okno wyboru plików.
+
+Skorzystaj z kontrolki OpenFileDialog:
+- zadbaj o to, by wyświetlona została w trybie okna dialogowego (ShowDialog)
+- w konfiguracji kontrolki ustaw by wyświetlała jedynie pliki txt (właściwość Filter)
+- w konfiguracji kontrolki ustaw inicjalny katalog na ten, w którym uruchamiana jest aplikacja
+	> jest na to wiele sposobów, możesz skorzystać na przykład z: Environment.CurrentDirectory
+
+Jeżeli w kontrolce faktycznie zostanie wybrany plik tekstowy aplikacja powinna wczytać jego zawartość. Skorzystaj z klasy "File", z metody "ReadAllText".
+
+Tak wczytany tekst powinien wyświetlić się w sekcji "Tekst wejściowy". Tekst ten powinien również stanowić dane źródłowe dla dalszego przetwarzania.
+
+---
+
+W folderze Etap_03 znajdziesz nowe pliki:
+- interfejs
+	ITextStatisticsService
+- typy danych
+	TextStatisticsData
+	SymbolStatisticsData
+	TextPrintingData
+	SymbolPrintingData
+- klasa abstrakcyjna serwisu
+	BaseTextStatisticsService
+
+Skopiuj je do odpowiednich folderów w swoim projekcie. Nie zapomnij zmienić w każdym z plików nazwy namespace oraz sekcji "using". Nazwy te powinny odpowiadać strukturze Twojego projektu. W przeciwnym wypadku pliki mogą nie zostać właściwie rozpoznane.
+
+---
+
+Oldegłym celem naszego programu jest kompresowanie plików.
+
+W systemach komputerowych programy i pliki tekstowe są zwykle kodowane z użyciem 8-bitowego kodu ASCII niezależnie od ilości informacji tam zawartej. Pliki tekstowe, dzięki odpowiedniemu kodowaniu, można ograniczyć o około 40% ich objętości bez utraty informacji.
+
+W ogólnym pojęciu bezstratna kompresja pliku polega na zapisaniu tej samej informacji w bardziej optymalny/wydajny sposób. Prostym przykładem może być sposób zapisu płci w bazie danych:
+
+Płeć moglibyśmy zapisać jako ciągi znaków:
+KOBIETA
+MĘŻCZYZNA
+
+Równie dobrze jednak, możemy zapisać tę samą informację w formie pojedynczego bitu, gdzie np.:
+1 - oznacza kobietę
+0 - oznacza mężczyznę
+
+Tak zapisana wiadomość jest znacznie krótsza zawierając przy tym tę samą ilość informacji.
+
+Aby móc dobrać bardziej optymalny sposób zapisu informacji trzeba zebrać pewne informacje o pliku:
+
+> prawdopodobieństwo wystąpienia znaku - oznaczymy jako P(E), wtedy:
+P(E) = liczba wszystkich wystąpień danego znaku / liczba wszystkich znaków
+
+E - dany znak w tekście
+
+> ilość informacji - miara ilości informacji dostarczonej przez wiadomość. W przypadku systemów binarnych obliczamy ją zgodnie z wzorem:
+
+03_2_iloscinformacji.jpg
+
+E - dany znak w tekście
+
+> entropia - formalna miara ilości informacji w wiadomości.
+W teorii informacji miarą ilości informacji w wiadomości jest przeciętna liczba bitów niezbędnych do zakodowania wszystkich możliwych wiadomości w optymalny sposób. Dla wiadomości/tekstu S, składającej się z wiadomości/znaków elementarnych s, entropię możemy wyliczyć z wzoru:
+
+03_3_entropia.jpg
+
+S - wiadomość / tekst
+s - kolejne znaki tekstu indeksowane literą i
+P(s_i) - prawdopodobieństwo wystąpienia i-tego znaku s
+
+Uwaga:
+powyższe definicje nie pojawią się na żadnej kartkówce ani sprawdzianie, nie marnujcie więc czasu na uczenie się tego na pamięć :P
+
+---
+
+Mając tę wiedzę stwórz własny serwis, który przyjmując jako parametr tekst odczytany z pliku wyliczy dla niego powyższe statystyki.
+
+Twój serwis powinien dziedziczyć z klasy abstrakcyjnej BaseTextStatisticsService.
+
+Wynik statystyki powinien zostać zaprezentowany w przygotowanych TextBoxach. Statystyki dla poszczególnych znaków zaprezentuj w drugim RichTextBoxie.
+
+Dla ułatwienia skorzystaj z metody:
+
+string.Format("Maska tekstu z parametrem {0} i drugim parametrem {1}", wartość_parametru_1, wartość_parametru_2)
+
+Oczywiście maskę i parametry dostosuj do potrzeb zadania.
+
+Jeżeli chcesz, by tekst został uzupełniony od lewej lub prawej jakimś znakiem, tak by sumarycznie uzyskał zadaną długość możesz skorzystać z operacji:
+"moj tekst".PadLeft(docelowa_długość, symbol_do_wypełnienia)
+lub
+"moj tekst".PadRight(docelowa_długość, symbol_do_wypełnienia)
+
+---
+
+W celu zweryfikowania poprawności działania Twojego programu możesz skorzystać z tekstu kontrolnego:
+
+03_4_pantadeusz.txt
+
+Po wyliczeniu statystyk tego pliku powinny one być zgodne z wynikiem w plikach:
+
+03_5_pantadeusz_statystyki.txt
+03_6_wynikdzialania.png
+
+
+
+---------------------------
+
+Zadanie dla chętnych:
+	- czym są
+	- do czego są wykorzystywane
+	- co daje nam stosowanie ich w strukturach danych
+	https://pl.wikipedia.org/wiki/Funkcja_jednokierunkowa
+	https://pl.wikipedia.org/wiki/Funkcja_skr%C3%B3tu
+	https://cyberwiedza.pl/funkcja-skrotu-kryptograficznego/
+	https://learn.microsoft.com/en-us/dotnet/standard/collections/hashtable-and-dictionary-collection-types
