@@ -40,6 +40,7 @@
             button8 = new Button();
             button9 = new Button();
             button10 = new Button();
+            button11 = new Button();
             SuspendLayout();
             // 
             // richTextBox1
@@ -96,7 +97,7 @@
             // 
             // button5
             // 
-            button5.Location = new Point(571, 197);
+            button5.Location = new Point(571, 154);
             button5.Name = "button5";
             button5.Size = new Size(217, 23);
             button5.TabIndex = 5;
@@ -106,7 +107,7 @@
             // 
             // button6
             // 
-            button6.Location = new Point(571, 226);
+            button6.Location = new Point(571, 183);
             button6.Name = "button6";
             button6.Size = new Size(217, 23);
             button6.TabIndex = 6;
@@ -116,7 +117,7 @@
             // 
             // button7
             // 
-            button7.Location = new Point(571, 298);
+            button7.Location = new Point(571, 244);
             button7.Name = "button7";
             button7.Size = new Size(217, 23);
             button7.TabIndex = 7;
@@ -126,7 +127,7 @@
             // 
             // button8
             // 
-            button8.Location = new Point(571, 327);
+            button8.Location = new Point(571, 273);
             button8.Name = "button8";
             button8.Size = new Size(217, 23);
             button8.TabIndex = 8;
@@ -136,7 +137,7 @@
             // 
             // button9
             // 
-            button9.Location = new Point(571, 356);
+            button9.Location = new Point(571, 302);
             button9.Name = "button9";
             button9.Size = new Size(217, 23);
             button9.TabIndex = 9;
@@ -146,7 +147,7 @@
             // 
             // button10
             // 
-            button10.Location = new Point(571, 385);
+            button10.Location = new Point(571, 331);
             button10.Name = "button10";
             button10.Size = new Size(217, 23);
             button10.TabIndex = 10;
@@ -154,11 +155,22 @@
             button10.UseVisualStyleBackColor = true;
             button10.Click += button10_Click;
             // 
+            // button11
+            // 
+            button11.Location = new Point(571, 415);
+            button11.Name = "button11";
+            button11.Size = new Size(217, 23);
+            button11.TabIndex = 11;
+            button11.Text = "button11";
+            button11.UseVisualStyleBackColor = true;
+            button11.Click += button11_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button11);
             Controls.Add(button10);
             Controls.Add(button9);
             Controls.Add(button8);
@@ -189,5 +201,6 @@
         private Button button8;
         private Button button9;
         private Button button10;
+        private Button button11;
     }
 }

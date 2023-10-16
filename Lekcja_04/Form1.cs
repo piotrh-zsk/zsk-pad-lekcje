@@ -148,5 +148,12 @@ namespace Lekcja_04
 
             richTextBox1.Text += wynik;
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, int> myDict = new Dictionary<string, int>();
+            myDict.Add("abc", 10);
+            myDict.Add("bcd", 100); // O(1) O(n)
+        }
     }
 }
