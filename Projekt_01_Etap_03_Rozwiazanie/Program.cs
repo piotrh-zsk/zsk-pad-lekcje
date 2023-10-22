@@ -1,4 +1,4 @@
-namespace Etap3.UI
+namespace Projekt_01_Etap_03_Rozwiazanie
 {
     internal static class Program
     {

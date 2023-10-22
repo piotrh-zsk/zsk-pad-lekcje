@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Projekt_01_Etap_02_Rozwiazanie.Core\Projekt_01_Etap_02_Rozwiazanie.Core.csproj" />
+    <ProjectReference Include="..\Projekt_01_Etap_02_Rozwiazanie.Shared\Projekt_01_Etap_02_Rozwiazanie.Shared.csproj" />
+  </ItemGroup>
+
+</Project>
