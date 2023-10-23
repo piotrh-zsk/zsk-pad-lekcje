@@ -1,0 +1,15 @@
+W folderze Projekt_01 -> Etap_03 -> Rozwiazanie znajduje siê przyk³adowe rozwi¹zanie jak powinien wygl¹daæ
+projekt na tym etapie.
+
+Je¿eli nie masz swojego rozwi¹zania uzupe³nij je do tego etapu wzoruj¹c siê na dostarczonym rozwi¹zaniu.
+
+G³ówna czêœæ programu, czyli serwis TextStatisticsService w projekcie Core bazuje na s³owniku. 
+
+Dodaj do projektu kolejny serwis, który bêdzie liczy³ dok³adnie to samo, jednak¿e nie korzystaj¹cy ze s³ownika.
+Skorzystaj z Tablic lub List. Postaraj siê nie korzystaæ w miarê mo¿liwoœci z gotowych procedur jak "Distinct" 
+lub "Group by".
+
+Postaraj siê, aby Twoje rozwi¹zanie bardziej bazowa³o na autorskim pomyœle i algorytmie korzystaj¹cym z podstawowych
+elementów jêzyka C#, jak na przyk³ad pêtle, itp.
+
+Powodzenia :)

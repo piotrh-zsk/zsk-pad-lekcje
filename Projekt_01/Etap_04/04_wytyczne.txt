@@ -1,0 +1,87 @@
+Kontrolka DataGridView występuje w ogromnej większości aplikacji biurowych. Doskonale nadaje się do prezentowania różnego rodzaju danych tabelarycznych.
+
+Kontrolka sama w sobie jest bardzo zaawansowanym mechanizmem. Pozwala na podpięcie jej do źródła danych, którymi może być na przykład baza danych, obiekt, itp. Kontrolka ta potrafi sama rozpoznać naturę źródła danych i w zależności od tego źródła rozpoznać strukturę danych, automatycznie wygenerować odpowiednie kolumny, itp. Kontrolka posiada podstawowe mechanizmy jak sortowanie danych po poszczególnych kolumnach, pozwala ukrywać, blokować ustawiać poszczególne kolumny w trybie tylko do odczytu. Posiada wiele rodzajów kolumn, podstawowe tekstowe, ale również kolumny typu checkBox, kolumny typu Button, image, czy nawet Combobox.
+
+Jest więc bardzo potężnym narzędziem. Wyłącznie o tę jedną kontrolkę można oprzeć niemal całą aplikację.
+
+Na potrzeby projektu zajmiemy się tą kontrolką jedynie w stopniu podstawowym.
+
+-----
+
+Aktaulnie prezentujemy dane w formie "tabelarycznej" korzystając z kontrolki richTextBox i odpowiednio spreparowanego formatowania tekstu. Docelowo zamienimy tę kontrolkę na lepszą kontrolkę, której przeznaczeniem jest właśnie prezentowanie tabelarycznych danych. Pracę zaczniemy więc od usunięcia z formatki kontrolki RichTextBox. W jej miejsce należy umieścić kontrolkę DataGridView. Rozmiar powinien być mniej więcej taki sam jaki miał richTextBox.
+
+-----
+Kolumny w kontrolce
+
+DataGridView może sam rozpoznać strukturę danych i na jej podstawie wygenerować potrzebne kolumny. My jednak ręcznie wygenerujemy kolumny. By to zrobić należy kliknąć prawy przycisk myszy na kontrolce i wybrać opcję Properties. W okienku Properties musimy odnaleźć właściwość Columns. Po kliknięciu w pole "(Collection)" właściwości Columns pojawi się przycisk z trzema kropkami. Jego wciśnięcie spowoduje wyświetlenie kreatora kolumn.
+
+Kreator jest stosunkowo prosty, pozwala zdefiniować wszystkie podstawowe cechy kolumn. Na potrzeby projektu zdefiniujemy podstawowe kolumny, wszystkie typu textBox (domyślnie wybrana), którym wartość tekstu w nagłówku nadamy kolejno:
+	Zapis binarny
+	Zapis dziesiętny
+	Symbol
+	Częstość
+	Prawdopodobieństwo
+	Ilość informacji
+
+Jeżeli wszystko poszło dobrze powinniśmy widzieć kontrolkę już z gotowym nagłówkiem wszystkich naszych kolumn.
+
+-----
+Dodawanie wierszy w kontrolce
+
+Skoro usunęliśmy richTextBoxa i w jego miejsce wstawiliśmy dataGridView musimy zadbać też o pozostałe miejsca, gdzie wykorzystywaliśmy kontrolkę richTextBox. Pierwszym miejscem będzie klasa pośrednicząca TextAnalyzerDataPresenter (lub jakkolwiek sobie ją nazwaliście). Musimy poprawić konstruktor tak by przyjmował nie RichTextBoxa a DataGridView a następnie poprawić miejsce inicjalizowania klasy presentera na formatce form1 podając w miejsce RichTextBoxa kontrolkę DataGridView.
+
+Mając dostęp do kontrolki DataGridView w presenterze możemy przejść do wydrukowania informacji w niej. Całość kodu odpowiedzialną za formatowanie tekstu możemy usunąć lub zakomentować.
+
+Różne metody dodawania rekordów w kontrolce DataGridView zostały omówione w projektach w folderze Lekcja_05. Skorzystamy z pierwszego sposobu, tj.:
+
+            int index = _dgv_Statistics.Rows.Add();
+
+Metoda ta dodaje nowy rekord w kontrolce. Wynikiem tej metody jest indeks, na którym występuje nowy rekord.
+Rekord ten będzie miał już odpowiednią strukturę, zawierać będzie on odpowiednią ilość kolumn.
+Do poszczególnych kolumn, a raczej komórek w rekordzie, odwoływać się będziemy po indeksie.
+
+Ten sposób jest dobry, ponieważ sami definiowaliśmy ilość, rodzaj oraz kolejność kolumn, dlatego wiemy które dane powinny trafić gdzie. W innych wypadkach inne sposoby dodawania danych do DataGridView mogą być lepsze.
+
+Iterując po kolejnych rekordach naszej kolekcji statystyk poszczególnych znaków możemy dodawać kolejne rekordy w DataGridVeiw:
+
+	_dgv_Statistics.Rows.Clear();
+	for (int i = 0; i < textPrintingData?.SymbolStatistics?.Count; i++)
+	{
+        int index = _dgv_Statistics.Rows.Add();
+        _dgv_Statistics.Rows[index].Cells[0].Value = textPrintingData.SymbolStatistics[i].BinaryNotation;
+        _dgv_Statistics.Rows[index].Cells[1].Value = textPrintingData.SymbolStatistics[i].DecimalNotation;
+        _dgv_Statistics.Rows[index].Cells[2].Value = textPrintingData.SymbolStatistics[i].Symbol;
+        _dgv_Statistics.Rows[index].Cells[3].Value = textPrintingData.SymbolStatistics[i].Frequency;
+        _dgv_Statistics.Rows[index].Cells[4].Value = textPrintingData.SymbolStatistics[i].Probability;
+        _dgv_Statistics.Rows[index].Cells[5].Value = textPrintingData.SymbolStatistics[i].InformationQuantity;
+	}
+
+I to tyle, na tym etapie kontrolka powinna prezentować nam wszystkie dane :) Możemy swobodnie rozszerzać kolumny, sortować po poszczególnych kolumnach, itd. :)
+
+------
+Formatowanie DataGridView
+
+Na tym etapie program powinien się kompilować, włączać i pokazywać te same wyniki co jego oryginalna wersja. Zauważyć jednak można, że obecnie
+kontrolka pozwala na ręczne dodawanie nowych rekordów. Z punktu widzenia naszego projektu jest to bez sensu. Możemy wyłączyć tę opcję zmieniając
+właściwość:
+
+AllowUsersToAddRows
+AllowUsersToDeleteRows
+
+na false. Spowoduje to zniknięcie dodatkowego pustego rekordu oraz nie pozwoli na usuwanie rekordów.
+
+Kolejną rzeczą, którą możemy poprawić jest niepotrzebny dodatkowy nagłówek po lewej stronie. Możemy go wyłączyć ustawiając właściwość:
+
+RowHeadersVisible
+
+na wartość false.
+
+Ostatnią rzeczą, którą możemy poprawić to tryb zaznaczania. Domyślnie zaznaczana jest jedynie komórka, w którą klikniemy.
+Jako że nie planujemy wykorzystywać DataGridView do edycji danych, możemy zmienić zachowanie kontrolki tak, by podświetlała cały
+wiersz. Robimy to modyfikując pole:
+
+SelectionMode
+
+na wartość
+
+FullRowSelect.
