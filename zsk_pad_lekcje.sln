@@ -32,9 +32,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lekcja_02", "Lekcja_02", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dokumenty", "Dokumenty", "{109C0368-3425-4AF4-BD02-2B00551A5487}"
 	ProjectSection(SolutionItems) = preProject
+		Dokumenty\Brak kontroloek w Toolboxie.txt = Dokumenty\Brak kontroloek w Toolboxie.txt
 		Dokumenty\Logowanie_VS_do_GIT.docx = Dokumenty\Logowanie_VS_do_GIT.docx
 		Dokumenty\Obsluga_GIT_z_VS.docx = Dokumenty\Obsluga_GIT_z_VS.docx
 		Dokumenty\VS_blank_solution.docx = Dokumenty\VS_blank_solution.docx
+		Dokumenty\Zmiana języka Visual Studio.docx = Dokumenty\Zmiana języka Visual Studio.docx
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lekcja_02_Przyklady", "Lekcja_02_Przyklady\Lekcja_02_Przyklady.csproj", "{9DA0C911-5221-4463-9DD1-4E53DA3C101B}"
@@ -96,7 +98,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projekt_01_Etap_03_Rozwiaza
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lekcja_05", "Lekcja_05", "{ACC23993-CFA9-4F32-8B32-F2117E939181}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lekcja_05", "Lekcja_05\Lekcja_05.csproj", "{B003DA1E-0D20-4B7C-A71D-221B869A32A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lekcja_05", "Lekcja_05\Lekcja_05.csproj", "{B003DA1E-0D20-4B7C-A71D-221B869A32A4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_04", "Etap_04", "{D1BC1617-8AC3-44AE-8B7A-0791217E6980}"
 	ProjectSection(SolutionItems) = preProject
@@ -106,11 +108,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_04", "Etap_04", "{D1BC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rozwiazanie", "Rozwiazanie", "{BB629354-0A69-4D42-81D1-9211D6B6A012}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt_01_Etap_04_Rozwiazanie", "Projekt_01_Etap_04_Rozwiazanie\Projekt_01_Etap_04_Rozwiazanie.csproj", "{728FECFB-5A4A-4DD8-8F41-9B1663BD99B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projekt_01_Etap_04_Rozwiazanie", "Projekt_01_Etap_04_Rozwiazanie\Projekt_01_Etap_04_Rozwiazanie.csproj", "{728FECFB-5A4A-4DD8-8F41-9B1663BD99B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt_01_Etap_04_Rozwiazanie.Core", "Projekt_01_Etap_04_Rozwiazanie.Core\Projekt_01_Etap_04_Rozwiazanie.Core.csproj", "{CB01054D-3293-4040-B9F8-0F8BC0111615}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projekt_01_Etap_04_Rozwiazanie.Core", "Projekt_01_Etap_04_Rozwiazanie.Core\Projekt_01_Etap_04_Rozwiazanie.Core.csproj", "{CB01054D-3293-4040-B9F8-0F8BC0111615}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt_01_Etap_04_Rozwiazanie.Shared", "Projekt_01_Etap_04_Rozwiazanie.Shared\Projekt_01_Etap_04_Rozwiazanie.Shared.csproj", "{DD30AC59-6757-4FCF-953D-76FCCE5A3B5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projekt_01_Etap_04_Rozwiazanie.Shared", "Projekt_01_Etap_04_Rozwiazanie.Shared\Projekt_01_Etap_04_Rozwiazanie.Shared.csproj", "{DD30AC59-6757-4FCF-953D-76FCCE5A3B5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
