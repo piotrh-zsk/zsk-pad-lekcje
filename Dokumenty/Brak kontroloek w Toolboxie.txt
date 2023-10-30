@@ -1,0 +1,15 @@
+1. Zamknij Visual Studio
+2. Przejdź do folderu:
+	%LOCALAPPDATA%\Microsoft\VisualStudio\
+3. Otwórz folder odpowiedniej wersji Visual Studio, może wyglądać mniej więcej tak:
+	17.0_65d436a7
+4. Sprawdź czy w folderze są te 4 pliki:
+	toolbox.tbd
+	toolbox_reset.tbd
+	toolboxIndex.tbd
+	toolboxIndex_reset.tbd
+5. Jeżeli nie widzisz plików być może są ukryte i musisz włączyć wyświetlanie ukrytych plików i folderów.
+   Jeżeli i to nie pomogło sprawdź lokalizację:
+	%USERPROFILE%\Local Settings\Application Data\Microsoft\VisualStudio\
+6. Usuń te 4 pliki
+7. Po ponownym włączeniu Visual Studio Toolbox powinien już działać.
