@@ -1,0 +1,4 @@
+Wzorce projektowe:
+- singleton
+- metoda szablonowa
+- metoda wytwórcza
