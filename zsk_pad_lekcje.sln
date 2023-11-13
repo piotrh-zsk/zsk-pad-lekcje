@@ -35,6 +35,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dokumenty", "Dokumenty", "{
 		Dokumenty\Brak kontroloek w Toolboxie.txt = Dokumenty\Brak kontroloek w Toolboxie.txt
 		Dokumenty\Logowanie_VS_do_GIT.docx = Dokumenty\Logowanie_VS_do_GIT.docx
 		Dokumenty\Obsluga_GIT_z_VS.docx = Dokumenty\Obsluga_GIT_z_VS.docx
+		Dokumenty\Przygotowanie repozytorium.docx = Dokumenty\Przygotowanie repozytorium.docx
 		Dokumenty\VS_blank_solution.docx = Dokumenty\VS_blank_solution.docx
 		Dokumenty\Zmiana języka Visual Studio.docx = Dokumenty\Zmiana języka Visual Studio.docx
 	EndProjectSection
@@ -121,11 +122,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_05", "Etap_05", "{6D6C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rozwiazanie", "Rozwiazanie", "{8BEBA51A-0791-44C7-B3D4-8CD612879917}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt_01_Etap_05_Rozwiazanie", "Projekt_01_Etap_05_Rozwiazanie\Projekt_01_Etap_05_Rozwiazanie.csproj", "{6D1A8631-87DA-4FD9-9806-DDFF9ECABEDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projekt_01_Etap_05_Rozwiazanie", "Projekt_01_Etap_05_Rozwiazanie\Projekt_01_Etap_05_Rozwiazanie.csproj", "{6D1A8631-87DA-4FD9-9806-DDFF9ECABEDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt_01_Etap_05_Rozwiazanie.Core", "Projekt_01_Etap_05_Rozwiazanie.Core\Projekt_01_Etap_05_Rozwiazanie.Core.csproj", "{5AC5096F-04C0-49B6-A161-9B4CFF674098}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projekt_01_Etap_05_Rozwiazanie.Core", "Projekt_01_Etap_05_Rozwiazanie.Core\Projekt_01_Etap_05_Rozwiazanie.Core.csproj", "{5AC5096F-04C0-49B6-A161-9B4CFF674098}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt_01_Etap_05_Rozwiazanie.Shared", "Projekt_01_Etap_05_Rozwiazanie.Shared\Projekt_01_Etap_05_Rozwiazanie.Shared.csproj", "{CA9C7F8C-BAFF-457B-AECD-F3D71A4E9807}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projekt_01_Etap_05_Rozwiazanie.Shared", "Projekt_01_Etap_05_Rozwiazanie.Shared\Projekt_01_Etap_05_Rozwiazanie.Shared.csproj", "{CA9C7F8C-BAFF-457B-AECD-F3D71A4E9807}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_06", "Etap_06", "{9669E875-A673-47EC-987C-AE671157A21B}"
+	ProjectSection(SolutionItems) = preProject
+		Projekt_01\Etap_06\06_wytyczne.txt = Projekt_01\Etap_06\06_wytyczne.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rozwiazanie", "Rozwiazanie", "{05F83CBF-EF05-40D0-867B-018A9BFF2A69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt_01_Etap_06_Rozwiazanie", "Projekt_01_Etap_06_Rozwiazanie\Projekt_01_Etap_06_Rozwiazanie.csproj", "{E22AF50D-04EA-4BA4-9109-AF7BAEA6A212}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt_01_Etap_06_Rozwiazanie.Core", "Projekt_01_Etap_06_Rozwiazanie.Core\Projekt_01_Etap_06_Rozwiazanie.Core.csproj", "{C2E2C16E-7524-4B31-9F3C-1BF4987B9A58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt_01_Etap_06_Rozwiazanie.Shared", "Projekt_01_Etap_06_Rozwiazanie.Shared\Projekt_01_Etap_06_Rozwiazanie.Shared.csproj", "{839F7245-825A-4388-A635-61E63A638610}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -229,6 +243,18 @@ Global
 		{CA9C7F8C-BAFF-457B-AECD-F3D71A4E9807}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA9C7F8C-BAFF-457B-AECD-F3D71A4E9807}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA9C7F8C-BAFF-457B-AECD-F3D71A4E9807}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E22AF50D-04EA-4BA4-9109-AF7BAEA6A212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E22AF50D-04EA-4BA4-9109-AF7BAEA6A212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E22AF50D-04EA-4BA4-9109-AF7BAEA6A212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E22AF50D-04EA-4BA4-9109-AF7BAEA6A212}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2E2C16E-7524-4B31-9F3C-1BF4987B9A58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2E2C16E-7524-4B31-9F3C-1BF4987B9A58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2E2C16E-7524-4B31-9F3C-1BF4987B9A58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2E2C16E-7524-4B31-9F3C-1BF4987B9A58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{839F7245-825A-4388-A635-61E63A638610}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{839F7245-825A-4388-A635-61E63A638610}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{839F7245-825A-4388-A635-61E63A638610}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{839F7245-825A-4388-A635-61E63A638610}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -268,6 +294,11 @@ Global
 		{6D1A8631-87DA-4FD9-9806-DDFF9ECABEDE} = {8BEBA51A-0791-44C7-B3D4-8CD612879917}
 		{5AC5096F-04C0-49B6-A161-9B4CFF674098} = {8BEBA51A-0791-44C7-B3D4-8CD612879917}
 		{CA9C7F8C-BAFF-457B-AECD-F3D71A4E9807} = {8BEBA51A-0791-44C7-B3D4-8CD612879917}
+		{9669E875-A673-47EC-987C-AE671157A21B} = {C72904D3-52F2-4BBF-AFFA-5F260E87B172}
+		{05F83CBF-EF05-40D0-867B-018A9BFF2A69} = {9669E875-A673-47EC-987C-AE671157A21B}
+		{E22AF50D-04EA-4BA4-9109-AF7BAEA6A212} = {05F83CBF-EF05-40D0-867B-018A9BFF2A69}
+		{C2E2C16E-7524-4B31-9F3C-1BF4987B9A58} = {05F83CBF-EF05-40D0-867B-018A9BFF2A69}
+		{839F7245-825A-4388-A635-61E63A638610} = {05F83CBF-EF05-40D0-867B-018A9BFF2A69}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1A0E135-6C1C-4384-8761-A8AF8E3EE9A3}
