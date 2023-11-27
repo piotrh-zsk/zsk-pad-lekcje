@@ -135,11 +135,28 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_06", "Etap_06", "{9669
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rozwiazanie", "Rozwiazanie", "{05F83CBF-EF05-40D0-867B-018A9BFF2A69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt_01_Etap_06_Rozwiazanie", "Projekt_01_Etap_06_Rozwiazanie\Projekt_01_Etap_06_Rozwiazanie.csproj", "{E22AF50D-04EA-4BA4-9109-AF7BAEA6A212}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projekt_01_Etap_06_Rozwiazanie", "Projekt_01_Etap_06_Rozwiazanie\Projekt_01_Etap_06_Rozwiazanie.csproj", "{E22AF50D-04EA-4BA4-9109-AF7BAEA6A212}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt_01_Etap_06_Rozwiazanie.Core", "Projekt_01_Etap_06_Rozwiazanie.Core\Projekt_01_Etap_06_Rozwiazanie.Core.csproj", "{C2E2C16E-7524-4B31-9F3C-1BF4987B9A58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projekt_01_Etap_06_Rozwiazanie.Core", "Projekt_01_Etap_06_Rozwiazanie.Core\Projekt_01_Etap_06_Rozwiazanie.Core.csproj", "{C2E2C16E-7524-4B31-9F3C-1BF4987B9A58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekt_01_Etap_06_Rozwiazanie.Shared", "Projekt_01_Etap_06_Rozwiazanie.Shared\Projekt_01_Etap_06_Rozwiazanie.Shared.csproj", "{839F7245-825A-4388-A635-61E63A638610}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projekt_01_Etap_06_Rozwiazanie.Shared", "Projekt_01_Etap_06_Rozwiazanie.Shared\Projekt_01_Etap_06_Rozwiazanie.Shared.csproj", "{839F7245-825A-4388-A635-61E63A638610}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_07", "Etap_07", "{B7A43DC1-0305-45F0-87FC-9F6337553D45}"
+	ProjectSection(SolutionItems) = preProject
+		Projekt_01\Etap_07\07_wytyczne.txt = Projekt_01\Etap_07\07_wytyczne.txt
+		Projekt_01\Etap_07\CompressForm.cs = Projekt_01\Etap_07\CompressForm.cs
+		Projekt_01\Etap_07\CompressFormPresenter.cs = Projekt_01\Etap_07\CompressFormPresenter.cs
+		Projekt_01\Etap_07\DecompressForm.cs = Projekt_01\Etap_07\DecompressForm.cs
+		Projekt_01\Etap_07\DecompressFormPresenter.cs = Projekt_01\Etap_07\DecompressFormPresenter.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rozwiazanie", "Rozwiazanie", "{7AF9EA7E-7613-4302-826C-8A4AE4E6BE19}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projekt_01_Etap_07_Rozwiazanie", "Projekt_01_Etap_07_Rozwiazanie\Projekt_01_Etap_07_Rozwiazanie.csproj", "{1E0A2DDE-B597-4091-AEFB-6B02B4667C2E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projekt_01_Etap_07_Rozwiazanie.Core", "Projekt_01_Etap_07_Rozwiazanie.Core\Projekt_01_Etap_07_Rozwiazanie.Core.csproj", "{B8109485-CCD0-428C-8ECD-CAD258E25181}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projekt_01_Etap_07_Rozwiazanie.Shared", "Projekt_01_Etap_07_Rozwiazanie.Shared\Projekt_01_Etap_07_Rozwiazanie.Shared.csproj", "{A9305133-1141-4399-A787-625135E76E1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -255,6 +272,18 @@ Global
 		{839F7245-825A-4388-A635-61E63A638610}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{839F7245-825A-4388-A635-61E63A638610}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{839F7245-825A-4388-A635-61E63A638610}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E0A2DDE-B597-4091-AEFB-6B02B4667C2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E0A2DDE-B597-4091-AEFB-6B02B4667C2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E0A2DDE-B597-4091-AEFB-6B02B4667C2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E0A2DDE-B597-4091-AEFB-6B02B4667C2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8109485-CCD0-428C-8ECD-CAD258E25181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8109485-CCD0-428C-8ECD-CAD258E25181}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8109485-CCD0-428C-8ECD-CAD258E25181}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8109485-CCD0-428C-8ECD-CAD258E25181}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9305133-1141-4399-A787-625135E76E1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9305133-1141-4399-A787-625135E76E1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9305133-1141-4399-A787-625135E76E1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9305133-1141-4399-A787-625135E76E1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -299,6 +328,11 @@ Global
 		{E22AF50D-04EA-4BA4-9109-AF7BAEA6A212} = {05F83CBF-EF05-40D0-867B-018A9BFF2A69}
 		{C2E2C16E-7524-4B31-9F3C-1BF4987B9A58} = {05F83CBF-EF05-40D0-867B-018A9BFF2A69}
 		{839F7245-825A-4388-A635-61E63A638610} = {05F83CBF-EF05-40D0-867B-018A9BFF2A69}
+		{B7A43DC1-0305-45F0-87FC-9F6337553D45} = {C72904D3-52F2-4BBF-AFFA-5F260E87B172}
+		{7AF9EA7E-7613-4302-826C-8A4AE4E6BE19} = {B7A43DC1-0305-45F0-87FC-9F6337553D45}
+		{1E0A2DDE-B597-4091-AEFB-6B02B4667C2E} = {7AF9EA7E-7613-4302-826C-8A4AE4E6BE19}
+		{B8109485-CCD0-428C-8ECD-CAD258E25181} = {7AF9EA7E-7613-4302-826C-8A4AE4E6BE19}
+		{A9305133-1141-4399-A787-625135E76E1B} = {7AF9EA7E-7613-4302-826C-8A4AE4E6BE19}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1A0E135-6C1C-4384-8761-A8AF8E3EE9A3}

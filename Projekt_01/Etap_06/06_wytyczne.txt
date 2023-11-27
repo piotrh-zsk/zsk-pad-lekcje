@@ -6,16 +6,24 @@ Praca grupowa: podział klasy mniej więcej na 3 grupy
 === TEORIA ====================
 ===============================
 
-Metoda stayczna Huffmana jest rodzajem metody słownikowej. Bazując na obliczonych statystykach poszczególnych symboli wyznaczane są nowe kody dla znaków. Zbiór tych kodów stanowi słownik. Korzystając z tego słownika przekodowywane są wszystkie symbole pliku. Wynikowy skompresowany plik składa się zarówno ze słownika kodowań oraz skompresowanych danych.
+Metoda stayczna Huffmana jest rodzajem metody słownikowej. Bazując na obliczonych statystykach
+poszczególnych symboli wyznaczane są nowe kody dla znaków. Zbiór tych kodów stanowi słownik.
+Korzystając z tego słownika przekodowywane są wszystkie symbole pliku. Wynikowy skompresowany
+plik składa się zarówno ze słownika kodowań oraz skompresowanych danych.
 
 Wyznaczanie kodów dla symboli
 
 Najprostszą metodą wyznaczania kodów metody Huffmana jest budowa drzewa binarnego.
 
-1. Dla każdego występującego w tekście znaku {s} tworzymy jednowęzłowe drzewo o wadze równej częstości występowania znaku {s} w tekście. Etykietą węzła jest znak {s}.
-2. Ze zbioru drzew usuwamy 2 drzewa t1 i t2 o najmniejszych wagach i tworzymy z nich nowe drzewo. Waga nowego drzewa jest sumą wag poddrzew t1 i t2. Krok 2 powtarzamy do momentu, gdy otrzymamy jedno drzewo.
-3. Wszystkim krawędziom wychodzącym z dowolnego węzła do lewego węzła potomnego przypisujemy etykietę 0 a tym, które wychodzą do prawego potomnego - etykietę 1.
-4. Każdemu znakowi {s} przypisuje się ciągi etykiet krawędzi na ścieżce rozpoczynającej się w korzeniu drzewa i kończącej na liściu z etykietą {s}.
+1. Dla każdego występującego w tekście znaku {s} tworzymy jednowęzłowe drzewo o wadze równej
+częstości występowania znaku {s} w tekście. Etykietą węzła jest znak {s}.
+2. Ze zbioru drzew usuwamy 2 drzewa t1 i t2 o najmniejszych wagach i tworzymy z nich nowe drzewo.
+Waga nowego drzewa jest sumą wag poddrzew t1 i t2. Krok 2 powtarzamy do momentu, gdy otrzymamy jedno
+drzewo.
+3. Wszystkim krawędziom wychodzącym z dowolnego węzła do lewego węzła potomnego przypisujemy
+etykietę 0 a tym, które wychodzą do prawego potomnego - etykietę 1.
+4. Każdemu znakowi {s} przypisuje się ciągi etykiet krawędzi na ścieżce rozpoczynającej się w
+korzeniu drzewa i kończącej na liściu z etykietą {s}.
 
 PRZYKŁAD:
 
