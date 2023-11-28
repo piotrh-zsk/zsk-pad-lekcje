@@ -1,0 +1,103 @@
+Dodatkowe okna aplikacji
+
+-- Dodawanie nowej formatki do projektu
+1. Kliknij prawym przyciskiem myszy na projekt
+2. Wybierz opcję Add -> Form
+3. W kreatorze nowego okna nazwij okno: CompressForm
+4. W designerze formatki Form1 przejdź do zakładki "Kompresowanie"
+5. Zaznacz kolejno wszystkie kontrolki i przekopiuj je na formatkę "CompressFrom"
+	a) możesz to zrobić klikając w kolejne kontrolki mając wciśnięty przycisk Ctrl
+	b) skopiuj kontrolki skrótem Ctrl+C, spowoduje to skopiowanie kontrolek razem z ich ustawieniami
+	c) przejdź do formatki CompressFrom i użyj skrótu Ctrl+V
+6. Skopiuj do folderu Presenters pliki (pamiętaj by w razie potrzeby dostosować nazwy namespaceów)
+	- CompressFormPresenter.cs
+	- DecompressFormPresenter.cs
+7. Kod oprogramowujący formatki CompressForm oraz DecompressForm skopiuj z plików (możesz podmienić, pamiętaj by w razie potrzeby dostosować nazwy namespaceów):
+	- CompressForm.cs
+	- DecompressForm.cs
+8. Na formatce Form1 umieść dwa dodatkowe przyciski "Skompresuj plik" oraz "Dekompresuj plik"
+9. Kliknij dwukrotnie w obydwa przyciski by wygenerować zdarzenia OnClick
+
+-- Wyświetlanie nowej formatki
+10. Najprostsza metoda uruchomienia nowej formatki może odbyć się za pośrednictwem tego kodu:
+
+            using (CompressForm compressForm = new CompressForm())
+            {
+                compressForm.ShowDialog();
+            }
+
+Kod wykorzystuje metodę "ShowDialog", która wyświetli nowe okno w trybie modalnym. Nie będzie możliwe wykonywanie akcji na formatce bazowej.
+
+11. Na nowej formatce możemy zdefiniować dodatkowe cechy. Jedną z nich może być zablokowanie możliwości zmiany rozmiaru nowego okna.
+Tę cechę można by ustawić w designerze formatki, my jednak ustawimy to z poziomu kodu. W tym celu skorzystamy z opcji FormBorderStyle,
+która może przyjąć poniższe wartości:
+
+FormBorderStyle - styl obramowania okna
+- None - brak obramowania
+- FixedSingle - cienka ramka, brak możliwości rozciągania okna, posiada ikonę formatki
+- Fixed3D - trójwymiarowa ramka, brak możliwości rozciągania okna
+- FixedDialog - gruba ramka, brak możliwości rozciągania okna, brak ikony formatki
+- Sizable -  obramowanie umożliwiające rozciąganie okna poprzez chwytanie za jego krawędź
+- FixedToolWindow - obramowanie okna narzędzi, brak możliwości rozciągania okna, okno obramowane tym stylem nie pojawia się na pasku 
+zadań (jeśli opcja ShowInTaskbar jest ustawiona na false) ani w podpowiedziach okien po wciśnięciu Alt+Tab. Nie posiada przycisków 
+maksymalizacji i minimalizacji.
+- SizableToolWindow - obramowanie okna narzędzi, możliwość rozciągania okna, okno obramowane tym stylem nie pojawia się na pasku 
+zadań (jeśli opcja ShowInTaskbar jest ustawiona na false) ani w podpowiedziach okien po wciśnięciu Alt+Tab. Nie posiada przycisków 
+maksymalizacji i minimalizacji.
+
+Do naszych potrzeb wykorzystamy opcję "FixedDialog". Wewnątrz sekcji "using", przed wywołaniem
+operacji ShowDialog umieść poniższy kod:
+
+                compressForm.FormBorderStyle = FormBorderStyle.FixedDialog;
+
+12. To ustawienie spowoduje bram możliwości rozciągania okna. Nadal jednak będziemy mogli wpłynąć na rozmiar okna poprzez przyciski
+minimalizacji i maksymalizacji. Możemy wyłączyć te przyciski korzystając z opcji:
+
+ControlBox - umożliwia wyłączenie wyświetlania sekcji zarządzania oknem (przycisk minimalizacji, maksymalizacji, wyłączenia)
+- true
+- false
+
+Opcja ta spowoduje jednak wyłączenie również przycisku "X". Lepszym rozwiązaniem będzie więc osobne wyłączenie przycisków:
+
+MaximizeBox - przycisk maksymalizacji okna
+- true
+- false
+
+MinimizeBox - przycisk minimalizacji okna
+- true
+- false
+
+Umieść pod w sekcji using, przed wywołaniem metody "ShowDialog" poniższy kod:
+
+                compressForm.MaximizeBox = false;
+                compressForm.MinimizeBox = false;
+
+13. Kolejnym użytecznym ustawieniem dla nowego okna jest jego inicjalna pozycja, w której zostanie ono wyświetlone.
+W celu skonfigurowania tego ustawienia możemy skorzystać z opcji:
+
+StartPosition - inicjalna pozycja okna po wyświetleniu
+- Manual - ręczne ustawienie położenia, to ustawienie spowoduje, że nowe okno zostanie wyświetlone w pozycji określonej przez właściwość Location
+- CenterScreen - to ustawienie spowoduje wyświetlenie okna w centrum aktywnego ekranu
+- WindowsDefaultLocation - to ustawienie spowoduje wyświetlenie okna w domyślnym miejscu, o którym zadecyduje system operacyjny, rozmiar okna zdefiniowany
+- WindowsDefaultBounds - to ustawienie spowoduje wyświetlenie okna w domyślnym miejscu, o którym zadecyduje system operacyjny
+- CenterParent - to ustawienie spowoduje wyświetlenie okna w centrum okna bazowego
+
+Na rzecz naszego programu skorzystamy z opcji wycentrowania okna nad formularzem bazowym. W tym celu umieść dodatkowy kod:
+
+                compressForm.StartPosition = FormStartPosition.CenterParent;
+
+14. Aby nasze nowe okno wyglądało kulturalnie należałoby nadać mu jakiś sensowny tytuł. W tym celu skorzystaj z opcji:
+
+Text - tekst na głównej belce okna (tytuł okna)
+
+Umieść poniższy kod (dopasuj tekst odpowiednio do okna):
+
+                compressForm.Text = "Kompresowanie pliku...";
+
+15. Dość ciekawą opcją do sprawdzenia i pobawienia się jest przeźroczystość okna. Możesz skorzystać z opcji:
+
+Opacity - przeźroczystość okna, jako wartość przyjmuje dowolną wartość double z zakresu 0-1.
+
+Ustaw przykładowo wartość Opacity korzystając z poniższego kodu:
+
+                compressForm.Opacity = 0.92;

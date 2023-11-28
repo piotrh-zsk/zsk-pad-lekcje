@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Projekt_01_Etap_04_Rozwiazanie.Core\Projekt_01_Etap_04_Rozwiazanie.Core.csproj" />
-    <ProjectReference Include="..\Projekt_01_Etap_04_Rozwiazanie.Shared\Projekt_01_Etap_04_Rozwiazanie.Shared.csproj" />
+    <ProjectReference Include="..\Projekt_01_Etap_05_Rozwiazanie.Core\Projekt_01_Etap_05_Rozwiazanie.Core.csproj" />
+    <ProjectReference Include="..\Projekt_01_Etap_05_Rozwiazanie.Shared\Projekt_01_Etap_05_Rozwiazanie.Shared.csproj" />
   </ItemGroup>
 
 </Project>

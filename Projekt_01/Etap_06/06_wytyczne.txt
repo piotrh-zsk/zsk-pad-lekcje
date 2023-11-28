@@ -1,0 +1,191 @@
+Kompresja plików statyczną metodą Huffmana
+
+Praca grupowa: podział klasy mniej więcej na 3 grupy
+
+===============================
+=== TEORIA ====================
+===============================
+
+Metoda stayczna Huffmana jest rodzajem metody słownikowej. Bazując na obliczonych statystykach
+poszczególnych symboli wyznaczane są nowe kody dla znaków. Zbiór tych kodów stanowi słownik.
+Korzystając z tego słownika przekodowywane są wszystkie symbole pliku. Wynikowy skompresowany
+plik składa się zarówno ze słownika kodowań oraz skompresowanych danych.
+
+Wyznaczanie kodów dla symboli
+
+Najprostszą metodą wyznaczania kodów metody Huffmana jest budowa drzewa binarnego.
+
+1. Dla każdego występującego w tekście znaku {s} tworzymy jednowęzłowe drzewo o wadze równej
+częstości występowania znaku {s} w tekście. Etykietą węzła jest znak {s}.
+2. Ze zbioru drzew usuwamy 2 drzewa t1 i t2 o najmniejszych wagach i tworzymy z nich nowe drzewo.
+Waga nowego drzewa jest sumą wag poddrzew t1 i t2. Krok 2 powtarzamy do momentu, gdy otrzymamy jedno
+drzewo.
+3. Wszystkim krawędziom wychodzącym z dowolnego węzła do lewego węzła potomnego przypisujemy
+etykietę 0 a tym, które wychodzą do prawego potomnego - etykietę 1.
+4. Każdemu znakowi {s} przypisuje się ciągi etykiet krawędzi na ścieżce rozpoczynającej się w
+korzeniu drzewa i kończącej na liściu z etykietą {s}.
+
+PRZYKŁAD:
+
+Przyjmijmy, że mamy tekst ACAGAATAGAGA
+
+Tablica częstości występowania znaków prezentuje się tak:
+A 7
+G 3
+C 1
+T 1
+
+Budowę drzewa rozpoczynamy od 4 węzłów o wagach równych częstości występowania. Porządkujemy węzły w kolejności nierosnącej:
+
+A(7)
+G(3)
+C(1)
+T(1)
+
+Wyszukujemy dwa węzły o najmniejszych wagach i następnie łączymy je w nowym węźle, którego waga będzie sumą wag jego liści:
+
+A(7)
+
+G(3)
+
+C(1) -+ 
+      +- (2)
+T(1) -+
+
+Kroki powtarzamy:
+
+A(7)
+
+G(3) ---------+
+              +- (5)
+C(1) -+       |
+      +- (2) -+
+T(1) -+
+
+Ostatni krok:
+
+A(7) -----------------+
+                      +- (12)
+G(3) ---------+       |
+              +- (5) -+
+C(1) -+       |
+      +- (2) -+
+T(1) -+
+
+Wszystkim krawędziom wychodzącym do lewego liścia przypisujemy etykietę 0, a wychodzącym do prawego etykietę 1:
+
+A(7) -------------------------[0]-+
+                                  +- (12)
+G(3) -------------[0]-+           |
+                      +- (5) -[1]-+
+C(1) -[0]-+           |
+          +- (2) -[1]-+
+T(1) -[1]-+
+
+Węzeł o największej wadze jest korzeniem drzewa. Wychodząc z tego węzła kolejno do wszystkich znaków sumujemy poszczególne etykiety, tak by uzyskać kody poszczególnych znaków:
+
+A - 0
+G - 10
+C - 110
+T - 111
+
+Zwróćmy uwagę na fakt, że najczęściej występujący znak w tekście uzyskał najkrótszy kod. Korzystając z takiej tablicy kodów możemy zapisać nasz tekst źródłowy jako:
+
+0 110 0 10 0 0 111 0 10 0 10 0
+
+W celu programistycznego wyznaczenia kodów na podstawie posiadanego drzewa binarnego posłużyć się możemy rekursywnym algorytmem przechodzenia drzewa w porządku post-order. Wyróżnia się 3 sposoby rekursywnego przejścia drzewa binarnego:
+
+    VLR – pre-order, przejście wzdłużne,
+    LVR – in-order, przejście poprzeczne,
+    LRV – post-order, przejście wsteczne,
+
+gdzie: Visit – „odwiedź” węzeł, Left – przejdź lewe poddrzewo, Right – przejdź prawe poddrzewo.
+
+
+===============================
+=== ZADANIE ===================
+===============================
+
+-- Przygotowanie repozytorium i solucji
+-----
+
+Po wyznaczeniu grup należy wybrać jedną osobę z grupy, która założy na swoim GitHub nowe repozytorium.
+Jeżeli ktoś nie pamięta jak zakładało się repozytorium instrukcja krok po kroku zawarta jest w pliku "Przygotowanie repozytorium.docx", w folderze Dokumenty na samej górze solucji.
+
+Z repozytorium "zsk-pad-lekcje" należy skopiować projekt startowy znajdujący się w folderze (w solucji) Projekt_01 -> Etap_06 -> Rozwiazanie.
+By najszybciej skopiować cały projekt do nowego repozytorium należy w nowym repozytorium utworzyć nowy projekt typu "Blank solution", następnie przejść w eksploratorze plików do folderu,
+w którym znajduje się plik "sln" naszej pustej solucji. Najłatwiej w tym celu jest kliknąc PPM na najwyższy elementr drzewka w okienku Solution exprorer (czyli plik naszej solucji) i wybrać
+opcję "Open folder in file explorer".
+Następnie tą samą opcję wybieramy klikając PPM na projekcie "Projekt_01_Etap_06_Rozwiazanie" w solucji zsk-pad-lekcje. Zostaniemy przeniesieni do folderu zawierającego ten projekt.
+Przechodzimy "piętro wyżej" i kopiujemy foldery:
+    Projekt_01_Etap_06_Rozwiazanie
+    Projekt_01_Etap_06_Rozwiazanie.Core
+    Projekt_01_Etap_06_Rozwiazanie.Shared
+i wkopiowujemy je do folderu z naszą pustą solucją.
+
+Ostatnim krokiem jest dodanie tych trzech projektów do naszej solucji. W tym celu w Visual Studio klikamy PPM na naszą solucję i wybieramy opcje Add -> Existing project.
+Wyszukujemy plik "Projekt_01_Etap_06_Rozwiazanie.csproj" i zatwierdzamy wybór. To samo powtarzamy dla pozostałych dwóch folderów.
+
+Najprawdopodbniej zaimportowane projekty nie będą posiadały odpowiednich referencji. Aby uzupełnić referencje rozwijamy projekt "Projekt_01_Etap_06_Rozwiazanie.Core", klikamy PPM
+na pozycję "Dependencies", wybieramy opcję Add projekct reference i zaznaczamy projekt Projekt_01_Etap_06_Rozwiazanie.Shared.
+Następnie rozwijamy projekt Projekt_01_Etap_06_Rozwiazanie, klikamy PPM na Dependencies i dodajemy referencję do projektów:
+    Projekt_01_Etap_06_Rozwiazanie.Core
+    Projekt_01_Etap_06_Rozwiazanie.Shared
+
+
+-- Rozpoczęcie pracy nad zadaniem
+-----
+
+Zadanie można podzielić na 4 osobne segmenty, które wykonywać będzie można równocześnie, niezależnie od siebie. Segmentami tymi są:
+
+1. Opracowanie kodu generującego słownik kodów dla poszczególnych znaków
+2. Opracowanie kodu przekształcającego słownik kodów do wydajnej postaci binarnej, która zostanie zapisana w pliku oraz kodu, który zapis binarny przekształci w słownik
+3. Opracowanie kodu przekształcającego zawartość pliku w dane binarne z wykorzystaniem słownika kodów
+4. Opracowanie kodu przekształcającego dane binarne w oryginalną zawartość pliku z wykorzystaniem słownika kodów
+
+Stosunkowo naturalnym i akceptowalnym wydaje się utworzenie na tę potrzebę trzech serwisów (trzech plików) co ułatwi jednoczesną pracę nad nimi. Mogłyby być nimi:
+
+1. HuffmanStaticSymbolsCodesService
+2. HuffmanStaticCompressorService
+3. HuffmanStaticDecompressorService
+
+Zanim taki podział będzie możliwy ustalić trzeba wspólne elementy aplikacji takie jak typy danych oraz interfejsy.
+
+-- HuffmanStaticSymbolsCodesService
+> powinien posiadać metodę wyznaczania słownika kodów
+	> parametr wejściowy: TextStatisticsData
+	> typ wyjściowy: {obiekt słownika}
+> powinien posiadać metodę przekształcania słownika w zapis binarny
+	> parametr wejściowy: słownik kodów {obiekt słownika}
+	> typ wyjściowy: {byte[]}
+> powinien posiadać metodę przekształcania zapisu binarnego w słownik
+	> parametr wejściowy: dane słownika {byte[]}
+	> typ wyjściowy: {obiekt słownika}
+
+-- HuffmanStaticCompressorService
+> powinien posiadać metodę przekształcania zawartości pliku w postać binarną korzystając ze słownika kodów
+	> parametr wejściowy: słownik kodów {obiekt słownika}, zawartość pliku {string}
+	> typ wyjściowy: {byte[]}
+
+-- HuffmanStaticDecompressorService
+> powinien posiadać metodę przekształcania postaci binarnej do zawartości pliku korzystając ze słownika kodów
+	> parametr wejściowy: słownik kodów {obiekt słownika}, zawartość pliku {byte[]}
+	> typ wyjściowy: {string}
+
+
+-- Słownik kodów
+Przetworzenie obiektu słownika kodów w zapis binarny powinna być odwracalna. Zapis binarny musi więc posiadać jakąś strukturę. Zapis taki pozwoli upakować informacje co do jednego bitu. Pamiętać należy jednak, że w pliku nie da się zapisać jednego bitu. Najmniejsza możliwa jednostka to 1 bajt, czyli 8 bitów. Struktura najprawdopodobniej będzie musiała posiadać informacje o znaczącej ilości bitów.
+
+Przykładowa struktura słownika kodów
+[liczba symboli w słowniku][symbol 1][liczba znaczących bitów kodu 1][kod 1] ... [symbol n][liczba znaczących bitów kodu n][kod n]
+
+Przykładowa struktura skompresowanej zawartości pliku
+[liczba znaczących bitów][bity zawartości pliku]
+
+Przykładowa struktura wynikowego pliku:
+[liczba bajtów słownika][bajty słownika][bajty pliku]
+
+
+-- Metody pomocnicze
+W projekcie Projekt_01_Etap_06_Rozwiazanie.Core dodany został folder "Helpers", który zawiera metody pomocnicze, z których można skorzystać. Nic nie stoi na przeszkodzie, by dodać
+w tym pliku kolejne metody, na przykład operujące na innych typach.

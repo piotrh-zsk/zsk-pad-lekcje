@@ -1,4 +1,4 @@
-﻿namespace Projekt_01_Etap_04_Rozwiazanie
+﻿namespace Projekt_01_Etap_05_Rozwiazanie
 {
     partial class Form1
     {
