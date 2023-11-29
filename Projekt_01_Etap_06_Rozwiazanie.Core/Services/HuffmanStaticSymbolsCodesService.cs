@@ -135,7 +135,7 @@ namespace Projekt_01_Etap_06_Rozwiazanie.Core.Services
                     if (code[i] == '0')
                         node.BitCode[i] = false;
                     else
-                        node.BitCode[i] |= true;
+                        node.BitCode[i] = true;
                 }
                 result.Symbol = node.Symbol;
                 result.Code = code;
