@@ -4,8 +4,6 @@ namespace Projekt_01_Etap_07_Rozwiazanie
 {
     public partial class CompressForm : Form
     {
-        public string aaa;
-
         private CompressFormPresenter? compressFormPresenter;
 
         public CompressForm()
@@ -19,8 +17,6 @@ namespace Projekt_01_Etap_07_Rozwiazanie
                 tb_Kompresowanie_CzasWyznaczeniaKodow,
                 tb_Kompresowanie_CzasKompresji,
                 dgv_Kompresowanie_Kody);
-
-            aaa = "asdasdasasddassad";
         }
 
 
