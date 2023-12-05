@@ -1,8 +1,8 @@
-﻿using Projekt_01_Etap_06_Rozwiazanie.Core.Helpers;
-using Projekt_01_Etap_06_Rozwiazanie.Shared.Enities;
-using Projekt_01_Etap_06_Rozwiazanie.Shared.Interfaces;
+﻿using Projekt_01_Etap_08_Rozwiazanie.Core.Helpers;
+using Projekt_01_Etap_08_Rozwiazanie.Shared.Enities;
+using Projekt_01_Etap_08_Rozwiazanie.Shared.Interfaces;
 
-namespace Projekt_01_Etap_06_Rozwiazanie.Core.Services
+namespace Projekt_01_Etap_08_Rozwiazanie.Core.Services
 {
     public class HuffmanStaticSymbolsCodesService : IHuffmanStaticSymbolsCodesService
     {
@@ -135,7 +135,7 @@ namespace Projekt_01_Etap_06_Rozwiazanie.Core.Services
                     if (code[i] == '0')
                         node.BitCode[i] = false;
                     else
-                        node.BitCode[i] = true;
+                        node.BitCode[i] |= true;
                 }
                 result.Symbol = node.Symbol;
                 result.Code = code;

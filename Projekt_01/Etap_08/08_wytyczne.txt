@@ -1,0 +1,87 @@
+Drag i drop
+
+-- Wstęp
+Operacje Drag i Drop posiadają pewne ograniczenia jeśli chodzi o prawa dostępu. Na wszelki wypadek na rzecz testów nie uruchamiaj
+Visual Studio w trybie administracyjnym.
+
+-- Przygotowanie formatki do drag i drop
+W pierwszym kroku należy przygotować formatkę wizualnie, tak by mogła obsługiwać operacje przeciągania plików
+1. Otwórz designer formatki CompressForm
+2. Rozciągnij odrobinę formatkę na tyle, by zmieścić na niej panel, który posłuży nam za miejsce do przeciągania plików
+3. Umieść na formatce kontrolkę o nazwie Panel
+4. Możesz skonfigurować graficznie Panel tak by nieco bardziej wyróżniał się od tła, możesz w tym celu ustawić mu ramkę lub tło
+5. Mając przygotowany panel należy zezwolić operacje drag i drop dla tej kontrolki. W tym celu we właściwościach panelu zmień opcję:
+
+AllowDrop
+
+na wartość true.
+6. Następnym krokiem będzie wygenerowanie odpowiednich zdarzeń do obsługi przeciągania plików. Przełącz się w oknie właściwości
+kontrolki na zarządzanie zdarzeniami (symbol pioruna). Poszukaj na liście zdarzenie o nazwie:
+
+DragEnter
+
+a następnie kliknij dwukrotnie by wygenerować to zdarzenie dla tej kontrolki.
+7. To zdarzenie zostanie wyzwolone w momencie, gdy kursor w trakcie przeciągania plików wejdzie w obszar naszej kontrolki. Jest to
+dobry moment i dobre miejsce do zasygnalizowania użytkownikowi o tym, że w tym miejscu nasza aplikacja zezwala na upuszczenie plików.
+Możemy zrobić to poprzez zmianę kursora. W tym celu w wygenerowanym zdarzeniu zamieść poniższą linię:
+
+e.Effect = DragDropEffects.All;
+
+8. Kolejnym krokiem jest obsługa samego upuszczenia plików na naszą kontrolkę. W tym celu w oknie zarządzania zdarzeniami odszukaj zdarzenie
+o nazwie:
+
+DragDrop
+
+a następnie kliknij dwukrotnie by wygenerować to zdarzenie dla tej formatki.
+9. Wewnątrz tego zdarzenia możemy skorzystać z parametrów dołączonych do zdarzenia. W tym celu możemy dodać poniższą linię:
+
+var pliki = e.Data?.GetData(DataFormats.FileDrop, false);
+
+Jak widzisz korzystamy w tym miejscu z obiektu "e", czyli z obiektu DragEventArgs. Zdarzenia często przesyłają w obiektach "e", czyli
+różnego rodzaju EventArgsach istotne dla zdarzenia dane. Powyższa linia spowoduje pobranie listy ścieżek do przeciągniętych plików.
+10. Obiekt ten może być nullem dlatego warto upewnić się, że nie jest nullem a następnie rzutować go na wygodniejszy w użytkowaniu
+typ danych:
+
+var pliki = e.Data?.GetData(DataFormats.FileDrop, false);
+if (pliki != null)
+{
+    string[] sciezkiDoPlikow = (string[])pliki;
+}
+
+11. W tym miejscu dobrze byłoby przeprowadzić różnego rodzaju walidacje. Jeżeli nasza aplikacja miałaby przyjmować jedynie
+konkretny typ pliku, rozmiar itp, należałoby w tym miejscu przeanalizować przerzucone pliki. Nasza aplikacja posiada ograniczenie
+w postaci ilości plików. Może ona kompresować jedynie jeden plik na raz. Dlatego dodajmy prostą walidację:
+
+var pliki = e.Data?.GetData(DataFormats.FileDrop, false);
+if (pliki != null)
+{
+    string[] sciezkiDoPlikow = (string[])pliki;
+    // sprawdzenie czy nie przeciągnięto wielu plików
+    if (sciezkiDoPlikow.Length > 1)
+    {
+        MessageBox.Show("Przeciągnij tylko jeden plik!");
+    }
+    else
+    {
+        // ...
+    }
+}
+
+12. Jeżeli przesłane pliki przejdą naszą walidację możemy kontynuować działanie programu w bardzo podobny sposób jak
+by to miało miejsce, gdybyśmy wskazali plik przy użyciu OpenFileDialog:
+
+var pliki = e.Data?.GetData(DataFormats.FileDrop, false);
+if (pliki != null)
+{
+    string[] sciezkiDoPlikow = (string[])pliki;
+    // sprawdzenie czy nie przeciągnięto wielu plików
+    if (sciezkiDoPlikow.Length > 1)
+    {
+        MessageBox.Show("Przeciągnij tylko jeden plik!");
+    }
+    else
+    {
+        var fileText = File.ReadAllText(sciezkiDoPlikow[0]);
+        compressFormPresenter?.PerformTextCompression(sciezkiDoPlikow[0], fileText);
+    }
+} 
