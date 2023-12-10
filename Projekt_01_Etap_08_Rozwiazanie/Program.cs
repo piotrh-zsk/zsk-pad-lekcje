@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace Projekt_01_Etap_08_Rozwiazanie
 {
     internal static class Program
@@ -11,6 +13,7 @@ namespace Projekt_01_Etap_08_Rozwiazanie
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             Application.Run(new Form1());
         }
     }

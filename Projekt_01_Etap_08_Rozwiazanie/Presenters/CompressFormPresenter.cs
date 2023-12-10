@@ -53,14 +53,29 @@ namespace Projekt_01_Etap_08_Rozwiazanie.Presenters
             // Zapis danych do pliku
             using (SaveFileDialog sfd = new SaveFileDialog())
             {
-                string filenameWithoutExtension = filename.Split('.')[0];
+                string filenameWithoutExtension = Path.GetFileNameWithoutExtension(filename);
                 sfd.Filter = "ZSK Compressed File file|*.zcf"; // możemy wymyśleć swój własny typ pliku
                 sfd.FileName = filenameWithoutExtension + ".zcf";
                 DialogResult result = sfd.ShowDialog();
                 if (result == DialogResult.OK)
                 {
                     // Kiedy będziemy mieli już bajty skompresowanego pliku możemy je zapisać
-                    File.WriteAllBytes(sfd.FileName, fileContentBytes);
+                    //File.WriteAllBytes(sfd.FileName, fileContentBytes);
+                    try
+                    {
+                        FileStream fs = File.Create(sfd.FileName, fileContentBytes.Length, FileOptions.None);
+                        BinaryWriter bw = new BinaryWriter(fs);
+                        bw.Write(fileContentBytes);
+                        bw.Close();
+                        fs.Close();
+                        bw.Dispose();
+                        fs.Dispose();
+                    }
+                    catch (IOException fe)
+                    {
+                        Console.WriteLine(fe.Message);
+                        throw;
+                    }
                 }
             }
         }

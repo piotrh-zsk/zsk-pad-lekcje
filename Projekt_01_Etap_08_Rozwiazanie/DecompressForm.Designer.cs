@@ -37,6 +37,7 @@
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             bt_RozpakujPlik = new Button();
             rtb_Dekompresowanie_Zawartosc = new RichTextBox();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dgv_Dekompresowanie_Kody).BeginInit();
             SuspendLayout();
             // 
@@ -122,15 +123,28 @@
             rtb_Dekompresowanie_Zawartosc.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             rtb_Dekompresowanie_Zawartosc.Location = new Point(430, 12);
             rtb_Dekompresowanie_Zawartosc.Name = "rtb_Dekompresowanie_Zawartosc";
-            rtb_Dekompresowanie_Zawartosc.Size = new Size(582, 455);
+            rtb_Dekompresowanie_Zawartosc.Size = new Size(365, 455);
             rtb_Dekompresowanie_Zawartosc.TabIndex = 18;
             rtb_Dekompresowanie_Zawartosc.Text = "";
+            // 
+            // panel1
+            // 
+            panel1.AllowDrop = true;
+            panel1.BackColor = Color.Silver;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Location = new Point(802, 12);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(210, 455);
+            panel1.TabIndex = 25;
+            panel1.DragDrop += panel1_DragDrop;
+            panel1.DragEnter += panel1_DragEnter;
             // 
             // DecompressForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1025, 583);
+            Controls.Add(panel1);
             Controls.Add(label9);
             Controls.Add(label10);
             Controls.Add(tb_Dekompresowanie_CzasDekompresji);
@@ -157,5 +171,6 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private Button bt_RozpakujPlik;
         private RichTextBox rtb_Dekompresowanie_Zawartosc;
+        private Panel panel1;
     }
 }

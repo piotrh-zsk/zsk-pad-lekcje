@@ -2,6 +2,7 @@
 using Projekt_01_Etap_08_Rozwiazanie.Shared.Enities;
 using Projekt_01_Etap_08_Rozwiazanie.Shared.Interfaces;
 using System.Diagnostics;
+using System.Text;
 
 namespace Projekt_01_Etap_08_Rozwiazanie.Presenters
 {
@@ -51,12 +52,27 @@ namespace Projekt_01_Etap_08_Rozwiazanie.Presenters
                 // Zapis danych do pliku
                 using (SaveFileDialog sfd = new SaveFileDialog())
                 {
-                    sfd.FileName = filename;
+                    sfd.FileName = Path.GetFileNameWithoutExtension(filename) + "_rozpakowany";
                     DialogResult result = sfd.ShowDialog();
                     if (result == DialogResult.OK)
                     {
                         // Po poprawnym rozpakowaniu można zapisać plik na dysku
-                        File.WriteAllText(sfd.FileName, fileText);
+                        //File.WriteAllText(sfd.FileName, fileText);
+                        try
+                        {
+                            FileStream fs = (FileStream)sfd.OpenFile();
+                            StreamWriter sw = new StreamWriter(fs, Encoding.GetEncoding("Windows-1250"));
+                            for (int i = 0; i < fileText.Length; i++)
+                                sw.Write(fileText[i]);
+                            sw.Close();
+                            sw.Dispose();
+                            fs.Dispose();
+                        }
+                        catch (IOException fe)
+                        {
+                            Console.WriteLine(fe.Message);
+                            throw;
+                        }
                     }
                 }
             }

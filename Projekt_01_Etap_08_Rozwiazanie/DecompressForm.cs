@@ -40,5 +40,35 @@ namespace Projekt_01_Etap_08_Rozwiazanie
                 decompressFormPresenter?.PerformTextDecompression(filename, fileContents);
             }
         }
+
+        private void panel1_DragEnter(object sender, DragEventArgs e)
+        {
+            // zmiana stylu kursora
+            e.Effect = DragDropEffects.All;
+        }
+
+        private void panel1_DragDrop(object sender, DragEventArgs e)
+        {
+            // pdczytanie przeciągniętych plików
+            var pliki = e.Data?.GetData(DataFormats.FileDrop, false);
+            if (pliki != null)
+            {
+                string[] sciezkiDoPlikow = (string[])pliki;
+                // sprawdzenie czy nie przeciągnięto wielu plików
+                if (sciezkiDoPlikow.Length > 1)
+                {
+                    MessageBox.Show("Przeciągnij tylko jeden plik!");
+                }
+                else
+                {
+                    string filename = Path.GetFileName(sciezkiDoPlikow[0]);
+                    byte[]? fileContents = File.ReadAllBytes(sciezkiDoPlikow[0]);
+                    if (fileContents != null)
+                    {
+                        decompressFormPresenter?.PerformTextDecompression(filename, fileContents);
+                    }
+                }
+            }
+        }
     }
 }

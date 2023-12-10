@@ -1,5 +1,5 @@
 ﻿using Projekt_01_Etap_08_Rozwiazanie.Presenters;
-using System.DirectoryServices.ActiveDirectory;
+using System.Text;
 
 namespace Projekt_01_Etap_08_Rozwiazanie
 {
@@ -31,7 +31,7 @@ namespace Projekt_01_Etap_08_Rozwiazanie
                 var result = ofd.ShowDialog(this);
                 if (result == DialogResult.OK)
                 {
-                    var fileText = File.ReadAllText(ofd.FileName);
+                    var fileText = File.ReadAllText(ofd.FileName, Encoding.GetEncoding("Windows-1250"));
                     compressFormPresenter?.PerformTextCompression(ofd.SafeFileName, fileText);
                 }
             }
@@ -57,7 +57,7 @@ namespace Projekt_01_Etap_08_Rozwiazanie
                 }
                 else
                 {
-                    var fileText = File.ReadAllText(sciezkiDoPlikow[0]);
+                    var fileText = File.ReadAllText(sciezkiDoPlikow[0], Encoding.GetEncoding("Windows-1250"));
                     compressFormPresenter?.PerformTextCompression(sciezkiDoPlikow[0], fileText);
                 }
             }

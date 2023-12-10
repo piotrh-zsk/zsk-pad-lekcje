@@ -1,5 +1,6 @@
 using Projekt_01_Etap_08_Rozwiazanie.Presenters;
 using Projekt_01_Etap_08_Rozwiazanie.Shared.Interfaces;
+using System.Text;
 
 namespace Projekt_01_Etap_08_Rozwiazanie
 {
@@ -41,11 +42,11 @@ namespace Projekt_01_Etap_08_Rozwiazanie
         {
             string currentPath = Environment.CurrentDirectory;
             openFileDialog1.InitialDirectory = currentPath;
-            openFileDialog1.Filter = "Pliki tekstowe|*.txt";
+            //openFileDialog1.Filter = "Pliki tekstowe|*.txt";
             var result = openFileDialog1.ShowDialog(this);
             if (result == DialogResult.OK)
             {
-                var fileText = File.ReadAllText(openFileDialog1.FileName);
+                var fileText = File.ReadAllText(openFileDialog1.FileName, Encoding.GetEncoding("Windows-1250"));
                 rtb_Statystyka_TekstWejsciowy.Text = fileText;
                 textAnalyzerDataPresenter?.PerformTextAnalysis(fileText);
             }
@@ -59,7 +60,7 @@ namespace Projekt_01_Etap_08_Rozwiazanie
             var result = openFileDialog1.ShowDialog(this);
             if (result == DialogResult.OK)
             {
-                var fileText = File.ReadAllText(openFileDialog1.FileName);
+                var fileText = File.ReadAllText(openFileDialog1.FileName, Encoding.GetEncoding("Windows-1250"));
                 rtb_Statystyka_TekstWejsciowy.Text = fileText;
                 textAnalyzerDataPresenter?.PerformTextCompression(openFileDialog1.SafeFileName, fileText);
             }
