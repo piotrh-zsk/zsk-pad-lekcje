@@ -100,3 +100,12 @@ przyjmują bowiem obiekty typu Size, Location, Point, Rectangle, itd.
 Czasami potrzebne jest wymuszenie odświeżenia kontrolki i odrysowania jej zawartości od nowa. Wykorzystać do tego można metodę:
 
 panel1.Refresh();
+
+
+
+-- ZADANIE
+---------------
+
+Przeanalizuj kod okienka Wykres.cs.
+Spróbuj dodać do niego operacje, które spowodują narysowanie na wykresie odpowiedniego tytułu.
+Postaraj się, aby tekst rysowany był wyśrodkowany na wykresie, oraz by opdowiednio zachowywał się przy zmianie rozmiaru okna.
