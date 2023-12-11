@@ -3,7 +3,7 @@ Rysowanie
 -- Wstęp
 Technologia WinForms domyślnie wspiera podstawowe metody generowania grafiki oparte o technolgię GDI+
 Technologia ta udostępnia bardzo prosty interfejs umożliwiający wykonywanie podstawowych operacji rysowania obiektów
-graficznych jak również i drugowanie tekstu.
+graficznych jak również i drukowanie tekstu.
 Aplikacje WinForms nie uzyskują bezpośredniego dostępu do urządzeń graficznych, biblioteka GDI+ stanowi pośrednik
 wchodzący w inerakcje ze sterownikami graficznymi itp.
 
@@ -11,9 +11,9 @@ wchodzący w inerakcje ze sterownikami graficznymi itp.
 -- Podstwowy
 -- obszar rysowania
 Ogólnie rzecz biorą rysować da się po każdym elemencie interfejsu. Najpopularniejszym podejściem jest jednak rysowanie po
-kontrolce PictureBox lub Panel. Kontrolki te udostępniają zdarzenie OnPain, które w łatwy sposób pozwala odwołać się do
+kontrolce PictureBox lub Panel. Kontrolki te udostępniają zdarzenie OnPaint, które w łatwy sposób pozwala odwołać się do
 elementu Graphics, który jest naszym punktem dostępowym do interfejsu GDI+.
-Dodatkowo kontrolki te umożliwiają umiarkowanie łatwą możliwośc ustwienia podwójnego buforowania, które znacząco redukuje
+Dodatkowo kontrolki te umożliwiają umiarkowanie łatwą możliwośc ustawienia podwójnego buforowania, które znacząco redukuje
 migotanie interfejsu podczas jego odrysowywania.
 Dostęp do elementu Graphics:
 
@@ -24,9 +24,8 @@ private void panel1_Paint(object sender, PaintEventArgs e)
 
 
 -- pióra i pędzle
-Podstawowe elementy potrzebne do rysowania to pióro i pędzel, Pióro wykorzystywane jest do ryzowania różnego rodzaju linii,
-obrysów, kształtów, itp.
-Pędzel z kolei wykorzystywany jest do wszelkich wypełnień kształtów kolorem ale również do drukowania tekstów.
+Podstawowe elementy potrzebne do rysowania to pióro i pędzel. Pióro wykorzystywane jest do ryzowania różnego rodzaju linii,
+obrysów, kształtów, itp. Pędzel z kolei wykorzystywany jest do wszelkich wypełnień kształtów kolorem ale również do drukowania tekstów.
 Przykładowe implementacje:
 
 Pen pen = new Pen(Color.Black, 1);
@@ -35,7 +34,7 @@ SolidBrush solidBrush = new SolidBrush(Color.Black);
 Jak widać pen, poza kolorem, pozwala również zdefiniować grubość linii.
 
 Warto pamiętać, że inicjalizacja piór i pędzli jest dość kosztowną operacją. Jeżeli jest to możliwe warto jest zainicjalizować
-wszystkie obiekty tego typu gdzieś "na boku", a w procesie rysowania jeydnie się do nich odwoływać.
+wszystkie obiekty tego typu gdzieś "na boku", a w procesie rysowania jedynie się do nich odwoływać.
 
 
 -- rysowanie linii i kształtów
@@ -43,7 +42,7 @@ Interfejs GDI+ udostępnia szereg prostych, gotowych do wykorzystania operacji d
 operacje tego typu jako parametr przyjmują współrzędne X i Y w różnym formacie, oraz w razie potrzeby dodatkowe parametry jak np.
 rozmiar.
 
-Rysowanie odbywa się poprzez wkazywanie odpowiednich punktów oraz wymiarów na osiach X i Y. Dojść mało intuicyjne może wydawać się,
+Rysowanie odbywa się poprzez wkazywanie odpowiednich punktów oraz wymiarów na osiach X i Y. Dość mało intuicyjne może wydawać się,
 że punkt zerowy (0, 0) osadzony jest w lewym górnym narożniku. Określenie współrzednych na przykład (100, 200) oznaczać będzie punkt
 oddalony o 100 pikseli od lewej krawędzi oraz 200 pikseli od górnej krawędzi.
 
@@ -80,7 +79,7 @@ do przygotowanego wcześniej obiektu. Samo rysowanie tekstu odbywa się z wykorz
 
 e.Graphics.DrawString(myText, myFont, solidBrush, x, y);
 
-Metoda przyjmuje tekst do wydrukowania, czcionkę jaka ma zostać użyta, pędzel oraz współrzędne, w których tekst ma zostac wydrukowany.
+Metoda przyjmuje tekst do wydrukowania, czcionkę jaka ma zostać użyta, pędzel oraz współrzędne, w których tekst ma zostać wydrukowany.
 
 Jak widać metoda ta choć wygodna niesie ze sobą kilka niedogodności. Jedną z nich jest fakt, że nie wiemy ile miejsca zajmie tekst,
 co z kolei może powodować trudności w jego pozycjonowaniu. Na przykład gdybyśmy chcieli wyrównywać tekst do prawej krawędzi.
