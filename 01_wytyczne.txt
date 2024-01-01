@@ -1,0 +1,15 @@
+Na podstawie tutorialu utwórz nowy projekt WPF i zdefiniuj w nim prostego Grida z przyk³adowymi kontrolkami:
+https://learn.microsoft.com/pl-pl/dotnet/desktop/wpf/get-started/create-app-visual-studio?view=netdesktop-8.0
+
+Do utworzonej wy¿ej aplikacji zaimplementuj klasê Clock oraz dodaj label wyœwietlaj¹cy aktualn¹ godzinê tak jak pokazano na poni¿szym tutorialu:
+https://learn.microsoft.com/pl-pl/training/modules/implement-data-binding-in-windows-10-app/2-introducing-databinding?pivots=wpf
+
+Rozrzesz grid o dodatkowy wiersz w którym wyœwietlisz pole do wpisania tekstu wejœciowego oraz przycisk zgodnie z poni¿szym tutorialem:
+https://learn.microsoft.com/pl-pl/training/modules/implement-data-binding-in-windows-10-app/3-transferring-data-with-databinding?pivots=wpf
+
+
+Dawka wiedzy o WPF do zapoznania siê:
+https://learn.microsoft.com/pl-pl/dotnet/desktop/wpf/overview/?view=netdesktop-8.0
+https://docs.microsoft.com/pl-pl/dotnet/desktop/wpf/?view=netdesktop-8.0
+https://wpf-tutorial.com/pl/1/o-wpf/czym-jest-wpf/
+https://www.tutorialspoint.com/wpf/index.htm

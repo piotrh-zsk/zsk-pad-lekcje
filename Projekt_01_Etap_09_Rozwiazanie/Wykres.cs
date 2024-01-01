@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Drawing;
 using System.Timers;
 
 namespace Projekt_01_Etap_09_Rozwiazanie
@@ -82,20 +83,20 @@ namespace Projekt_01_Etap_09_Rozwiazanie
             else
                 liczbaPodzialek = wartoscB / podzialka;
 
-            //aTimer.SynchronizingObject = this;
-            //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-            //aTimer.Interval = frameSleep;
-            //aTimer.Enabled = true;
-            //
-            //oryginalneKilobajtyPom = oryginalneKilobajty;
-            //spakowaneKilobajtyPom = spakowaneKilobajty;
-            //oryginalneKilobajty = 1;
-            //spakowaneKilobajty = 1;
-            //
-            //float liczbaPowtorzen = dlugoscAnimacjiMs / frameSleep;
-            //
-            //oryginalneKilobajtySkok = oryginalneKilobajtyPom / liczbaPowtorzen;
-            //spakowaneKilobajtySkok = spakowaneKilobajtyPom / liczbaPowtorzen;
+            aTimer.SynchronizingObject = this;
+            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            aTimer.Interval = frameSleep;
+            aTimer.Enabled = true;
+
+            oryginalneKilobajtyPom = oryginalneKilobajty;
+            spakowaneKilobajtyPom = spakowaneKilobajty;
+            oryginalneKilobajty = 1;
+            spakowaneKilobajty = 1;
+
+            float liczbaPowtorzen = dlugoscAnimacjiMs / frameSleep;
+
+            oryginalneKilobajtySkok = oryginalneKilobajtyPom / liczbaPowtorzen;
+            spakowaneKilobajtySkok = spakowaneKilobajtyPom / liczbaPowtorzen;
         }
 
         private void OnTimedEvent(object source, ElapsedEventArgs e)
@@ -140,7 +141,7 @@ namespace Projekt_01_Etap_09_Rozwiazanie
             Point canvas_location = new Point(lewaKrawedz, gornaKrawedz);
             Size canvas_size = new Size(panel1.Width - (marginesy.Width * 2), panel1.Height - (marginesy.Height * 2));
             Rectangle canvas = new Rectangle(canvas_location, canvas_size);
-            //e.Graphics.DrawRectangle(selPen, canvas);
+            e.Graphics.DrawRectangle(selPen, canvas);
 
             // obszar wartosci Y
             int obszarWartosciY_szerokosc = (int)(((float)canvas.Width) * procentowaSzerokoscWartosciY);
@@ -148,7 +149,7 @@ namespace Projekt_01_Etap_09_Rozwiazanie
             Point obszarWartosciY_location = new Point(lewaKrawedz, gornaKrawedz);
             Size obszarWartosciY_size = new Size(obszarWartosciY_szerokosc, obszarWartosciY_wysokosc);
             Rectangle obszarWartosciY = new Rectangle(obszarWartosciY_location, obszarWartosciY_size);
-            //e.Graphics.DrawRectangle(selPen, obszarWartosciY);
+            e.Graphics.DrawRectangle(selPen, obszarWartosciY);
 
             // obszar wartosci X
             int obszarWartosciX_szerokosc = canvas.Width;
@@ -156,7 +157,7 @@ namespace Projekt_01_Etap_09_Rozwiazanie
             Point obszarWartosciX_location = new Point(lewaKrawedz, dolnaKrawedz - obszarWartosciX_wysokosc);
             Size obszarWartosciX_size = new Size(obszarWartosciX_szerokosc, obszarWartosciX_wysokosc);
             Rectangle obszarWartosciX = new Rectangle(obszarWartosciX_location, obszarWartosciX_size);
-            //e.Graphics.DrawRectangle(selPen, obszarWartosciX);
+            e.Graphics.DrawRectangle(selPen, obszarWartosciX);
 
             // okreslenie punktu (0, 0) wykresu i linii pionowych i poziomych
             Point zeroZero_location = new Point(lewaKrawedz + obszarWartosciY_szerokosc, dolnaKrawedz - obszarWartosciX_wysokosc);
@@ -187,11 +188,11 @@ namespace Projekt_01_Etap_09_Rozwiazanie
 
             // podział obszaru wykresu na dwa i wyznaczenie środków
             int srodekWykresu = zeroZero_location.X + ((prawaKrawedz - zeroZero_location.X) / 2);
-            //e.Graphics.DrawLine(selPen, srodekWykresu, marginesy.Height, srodekWykresu, zeroZero_location.Y);
+            e.Graphics.DrawLine(selPen, srodekWykresu, marginesy.Height, srodekWykresu, zeroZero_location.Y);
             int srodekLewegoSlupka = zeroZero_location.X + ((srodekWykresu - zeroZero_location.X) / 2);
             int srodekPrawegoSlupka = srodekWykresu + ((prawaKrawedz - srodekWykresu) / 2);
-            //e.Graphics.DrawLine(selPen, srodekLewegoSlupka, marginesy.Height, srodekLewegoSlupka, zeroZero_location.Y);
-            //e.Graphics.DrawLine(selPen, srodekPrawegoSlupka, marginesy.Height, srodekPrawegoSlupka, zeroZero_location.Y);
+            e.Graphics.DrawLine(selPen, srodekLewegoSlupka, marginesy.Height, srodekLewegoSlupka, zeroZero_location.Y);
+            e.Graphics.DrawLine(selPen, srodekPrawegoSlupka, marginesy.Height, srodekPrawegoSlupka, zeroZero_location.Y);
 
             // obliczenie szerokości słupków
             int szerokoscSlupka = (int)((float)(srodekWykresu - zeroZero_location.X) * procentowaSzerokoscSlupka);
@@ -232,6 +233,13 @@ namespace Projekt_01_Etap_09_Rozwiazanie
             SizeF slupekPrawy_szerokoscTekstu = e.Graphics.MeasureString(slupekPrawy_podpis, fontPodzialki);
             int slupekPrawy_poczatekTekstu = (int)(srodekPrawegoSlupka - (slupekPrawy_szerokoscTekstu.Width / 2));
             e.Graphics.DrawString(slupekPrawy_podpis, fontPodzialki, solidBrushPodzialki, slupekPrawy_poczatekTekstu, zeroZero_location.Y + 5);
+
+            var tytuł = "Różnica w rozmiarze plików";
+            FontFamily fontFamily = new FontFamily("Arial");
+            Font myFont = new Font(fontFamily, 18, FontStyle.Regular);
+            var tytuldlugosc = e.Graphics.MeasureString(tytuł, myFont);
+            var tekstpunkt = new Point((obszarWartosciX_szerokosc/2) - (int)(tytuldlugosc.Width/2), gornaKrawedz + (int)(tytuldlugosc.Height / 2));
+            e.Graphics.DrawString(tytuł, myFont, solidBrushPrawy, tekstpunkt.X, tekstpunkt.Y);
         }
 
         private void Wykres_Resize(object sender, EventArgs e)
