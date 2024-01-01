@@ -184,13 +184,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projekt_01_Etap_09_Rozwiaza
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Projekt_01_Etap_09_Rozwiazanie.Shared", "Projekt_01_Etap_09_Rozwiazanie.Shared\Projekt_01_Etap_09_Rozwiazanie.Shared.csproj", "{349B9387-D80E-4BD4-ABB5-89EF2E1141C8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projekt_02", "Projekt_02", "{7774F84C-82D5-4C03-8E37-C6DAA9735C49}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_01", "Etap_01", "{30CCE833-23EA-4346-B434-31B8C6DF4959}"
-	ProjectSection(SolutionItems) = preProject
-		01_wytyczne.txt = 01_wytyczne.txt
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -400,7 +393,6 @@ Global
 		{6C91246E-E9ED-4173-9CDF-E20E5C0BBBA0} = {EC72B94C-9BDB-4841-A386-2BEEFD2DFCB5}
 		{B056E16D-CCDD-40C4-8793-0EB357543A6D} = {EC72B94C-9BDB-4841-A386-2BEEFD2DFCB5}
 		{349B9387-D80E-4BD4-ABB5-89EF2E1141C8} = {EC72B94C-9BDB-4841-A386-2BEEFD2DFCB5}
-		{30CCE833-23EA-4346-B434-31B8C6DF4959} = {7774F84C-82D5-4C03-8E37-C6DAA9735C49}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1A0E135-6C1C-4384-8761-A8AF8E3EE9A3}
