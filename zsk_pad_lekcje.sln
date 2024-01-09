@@ -199,6 +199,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_01", "Etap_01", "{41F7
 		Semestr 2\Projekt\Etap_01\01_wytyczne.txt = Semestr 2\Projekt\Etap_01\01_wytyczne.txt
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_02", "Etap_02", "{4E9F98F6-7C6C-4420-884F-9A93BAF3158A}"
+	ProjectSection(SolutionItems) = preProject
+		02_wytyczne.txt = 02_wytyczne.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -418,6 +423,7 @@ Global
 		{24BBA929-61C1-4826-A724-36A8F502F3A5} = {1EAE4597-CFDC-406E-B3BB-DD73E8F9A4B3}
 		{62B73586-E8FA-43E4-8476-9E3760429D09} = {1EAE4597-CFDC-406E-B3BB-DD73E8F9A4B3}
 		{41F7D3E6-3FC1-4CEA-B20A-71C06392EC14} = {62B73586-E8FA-43E4-8476-9E3760429D09}
+		{4E9F98F6-7C6C-4420-884F-9A93BAF3158A} = {62B73586-E8FA-43E4-8476-9E3760429D09}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1A0E135-6C1C-4384-8761-A8AF8E3EE9A3}
