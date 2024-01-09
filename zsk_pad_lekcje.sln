@@ -199,6 +199,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_01", "Etap_01", "{41F7
 		Semestr 2\Projekt\Etap_01\01_wytyczne.txt = Semestr 2\Projekt\Etap_01\01_wytyczne.txt
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rozwiazanie", "Rozwiazanie", "{4B59D646-8312-4ABB-8F3B-AE76E192D242}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "Semestr 2\Projekt\Etap_01\Rozwiazanie\WpfApp1\WpfApp1.csproj", "{0FD4CACD-B2A4-4CAF-B644-996358A4C619}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -349,6 +353,10 @@ Global
 		{7D8AE25B-01C8-4C14-ABF3-E3A95EF58228}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D8AE25B-01C8-4C14-ABF3-E3A95EF58228}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D8AE25B-01C8-4C14-ABF3-E3A95EF58228}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FD4CACD-B2A4-4CAF-B644-996358A4C619}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FD4CACD-B2A4-4CAF-B644-996358A4C619}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FD4CACD-B2A4-4CAF-B644-996358A4C619}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FD4CACD-B2A4-4CAF-B644-996358A4C619}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -418,6 +426,8 @@ Global
 		{24BBA929-61C1-4826-A724-36A8F502F3A5} = {1EAE4597-CFDC-406E-B3BB-DD73E8F9A4B3}
 		{62B73586-E8FA-43E4-8476-9E3760429D09} = {1EAE4597-CFDC-406E-B3BB-DD73E8F9A4B3}
 		{41F7D3E6-3FC1-4CEA-B20A-71C06392EC14} = {62B73586-E8FA-43E4-8476-9E3760429D09}
+		{4B59D646-8312-4ABB-8F3B-AE76E192D242} = {41F7D3E6-3FC1-4CEA-B20A-71C06392EC14}
+		{0FD4CACD-B2A4-4CAF-B644-996358A4C619} = {4B59D646-8312-4ABB-8F3B-AE76E192D242}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1A0E135-6C1C-4384-8761-A8AF8E3EE9A3}
