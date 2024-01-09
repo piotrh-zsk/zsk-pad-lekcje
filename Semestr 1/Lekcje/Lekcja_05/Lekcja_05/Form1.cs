@@ -43,6 +43,8 @@ namespace Lekcja_05
         {
             string typKolumny = "";
             string wartosc = "";
+            if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null)
+                return;
             if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewTextBoxColumn)
             {
                 typKolumny = "TextBox";
@@ -65,6 +67,11 @@ namespace Lekcja_05
             }
 
             MessageBox.Show("Klikniêto w wiersz " + e.RowIndex + ", kolumna " + e.ColumnIndex + " typu " + typKolumny + " zawartoœæ: " + wartosc);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
