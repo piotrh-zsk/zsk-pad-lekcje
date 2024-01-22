@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Tła -->
+    <SolidColorBrush x:Key="MainBackground" Color="#F2F2F2" />
+    <SolidColorBrush x:Key="ButtonBackground" Color="#249CFF" />
+    <SolidColorBrush x:Key="ActiveButtonBackground" Color="#1E7FCE" />
+
+    <!-- Tekst -->
+    <SolidColorBrush x:Key="MainTextColor" Color="#000000" />
+    <SolidColorBrush x:Key="TitleTextColor" Color="#303030" />
+    <SolidColorBrush x:Key="ValueTextColor" Color="#202020" />
+    <SolidColorBrush x:Key="ButtonTextColor" Color="#FFFFFF" />
+</ResourceDictionary>

@@ -1,0 +1,142 @@
+Style:
+Style definiowaæ mo¿na w:
+
+-> Application.Resources - style dostêpne globalnie w ramach ca³ej aplikacji
+-> Window.Resources - style dostêpne globalnie dla okienka i wszystkich jego kontrolek
+-> [layout].Resources - style dostêpne dla kontrolki stanowi¹cej layout, oraz kontrolek w nim zawartych
+-> lokalnie
+
+
+Typy zasobów:
+Ró¿nica miêdzy StaticResource i DynamicResource polega na sposobie pobierania zasobów przez elementy odwo³uj¹ce siê.
+
+-> StaticResource s¹ pobierane tylko raz przez element/kontrolkê i u¿ywane przez ca³y czas ¿ycia zasobu.
+-> DynamicResource s¹ pozyskiwane za ka¿dym razem, gdy u¿ywany jest obiekt, do którego siê odwo³uje.
+
+Mówi¹c proœciej, jeœli w³aœciwoœæ color np. Backgroud zostanie zmieniona w kodzie na inny kolor, wówczas
+zmiana ta zostanie odzwierciedlona tylko wtedy, gdy zasób zostanie u¿yty jako DynamicResource.
+
+
+==========
+
+Kroki:
+
+Do aplikacji z etapu pierwszego zdefiniuj arkusz stylów, który bêdzie okreœla³ kolor tekstów, t³a oraz kolory i gruboœæ
+obramowñ kontrolek. Dla wygody umieœæ styl w pliku App.xaml.
+Arkusz powinien zawieraæ style dla kontrolek:
+> Window
+> Label
+> ListBox
+> TextBox
+> Button
+
+Nadaj stylom nazwy zaczynaj¹ce siê od "Default" z dopiskiem nazwy kontrolki, odpowiednio:
+> DefaultWindow
+> DefaultLabel
+> DefaultListBox
+> DefaultTextBox
+> DefaultButton
+
+Przyk³adowy styl kontrolki:
+
+<Style TargetType="ListBox" x:Key="DefaultListBox">
+    <Setter Property="Background" Value="#F2F2F2" />
+    <Setter Property="BorderBrush" Value="#202020" />
+    <Setter Property="Foreground" Value="#202020" />
+</Style>
+
+Aplikacja po zdefiniowaniu stylów, powinna wygl¹daæ na przyk³ad tak jak na zrzucie:
+
+app_lighttheme.png
+
+===
+
+Style mog¹ bazowaæ na innych stylach. Stwórz styl dla przycisku bazuj¹cy na stylu DefaultButton.
+W tym celu skorzystaj z argumentu:
+
+BasedOn="{StaticResource DefaultButton}"
+
+Nowy styl powinien modyfikowaæ istniej¹c¹ w³aœciwoœæ, na przyk³ad gruboœæ ramki oraz dok³adaæ dodatkow¹ w³aœciwoœæ, na
+przyk³ad wielkoœæ tekstu.
+
+===
+
+Style mog¹ byæ aplikowane nie tylko na sta³e ale równie¿ w skutek jakiegoœ zdarzenia/triggera. Na przyk³ad przycisk
+mo¿e mieæ inne t³o w domyœlnym stanie i inne po najechaniu myszk¹.
+
+Przyk³adowe dzia³anie triggera mo¿esz zaobserwowaæ dodaj¹c do StackPanelu poni¿szy kod: 
+
+<CheckBox Content="Check me" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <CheckBox.Style>
+        <Style TargetType="CheckBox">
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Foreground" Value="Red"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </CheckBox.Style>
+</CheckBox>
+
+Tech CheckBox powinien zmieniæ kolor tekstu po zaklikniêciu.
+
+Zdefiniuj dodatkow¹ ceche stylu, która spowoduje, ¿e po najechaniu myszk¹ na przycisk uzyska on inny kolor t³a. W tym 
+celu dodaj poni¿szy trigger do istniej¹cego stylu przycisku:
+
+<Setter Property="Template">
+    <Setter.Value>
+        <ControlTemplate TargetType="{x:Type Button}">
+            <Border x:Name="Border" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#1E7FCE" TargetName="Border" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Setter.Value>
+</Setter>
+
+===
+
+Je¿eli aplikacja docelowo ma posiadaæ ró¿ne style, na przyk³ad jasny/ciemny, doœæ wygodnym rozwi¹zaniem jest wydzielenie kolorów
+wystêpuj¹cych w stylach do osobnych plików.
+
+Utwórz w projekcie nowy folder o nazwie "Themes".
+Wewn¹trz folderu dodaj dwa pliki korzystaj¹c z opcji Add/New item -> Resource dictionary
+Pliki powinny nazywaæ siê:
+> LightTheme.xaml
+> HighContrastTheme.xaml
+
+Zdefiniuj w tych plikach wystêpuj¹ce w stylach kolory. Przyk³adowa zawartoœæ pliku:
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="MainBackground" Color="#F2F2F2" />
+    (...)
+</ResourceDictionary>
+
+Nastêpnie w pliku App.xaml obejmij wszystkie style w obiekt
+
+<ResourceDictionary></ResourceDictionary>
+
+Innymi s³owy, jeœli do tej pory Twój arkusz stylów wygl¹da³ tak:
+
+<Application.Resources>
+    // zdefiniowane style
+</Application.Resources>
+
+Obejmij wszystko tak by plik wygl¹da³:
+
+<Application.Resources>
+    <ResourceDictionary>
+        // zdefiniowane style
+    </ResourceDictionary>
+</Application.Resources>
+
+Nastêpnie dodaj w arkuszu stylu odniesienie do pliku HighContrastTheme lub LightTheme:
+
+<ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="Themes/LightTheme.xaml"/>
+</ResourceDictionary.MergedDictionaries>
