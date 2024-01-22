@@ -3,8 +3,8 @@ Zmiana motywu aplikacji:
 Na poprzednich zajęciach przygotowaliśmy dwa obiekty typu ResourceDictionary odpowiendio dla jasnego i ciemnego motywu.
 Zmiana motywu w trakcie działania aplikacji będzie polegała na podmianie używanego słownika zasobów.
 
-Aby łatwiej było to zrobić należy dodać kolejny poziom zagnieżdżenia w naszym słowniku zasobów w pliku App.xaml.
-Do tej pory kod wyglądał tak:
+
+Do tej pory kod w pliku App.xaml wyglądał tak:
 
     <Application.Resources>
         <ResourceDictionary>
@@ -13,58 +13,34 @@ Do tej pory kod wyglądał tak:
                 <!--<ResourceDictionary Source="Themes/HighContrastTheme.xaml"/>-->
             </ResourceDictionary.MergedDictionaries>
 
-Należy zmodyfikować kod tak, by wyglądał tak:
+Mamy tam zdefiniowany nasz słownik styli. Dodamy w aplikacji metodę na podmianę go na inny.
+Możesz wybrać np. radiobutton lub przycisk. 
 
-    <Application.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary x:Name="ThemeDictionary">
-                    <ResourceDictionary.MergedDictionaries>
-                        <ResourceDictionary Source="/Themes/LightTheme.xaml"/>
-                        <!--<ResourceDictionary Source="/Themes/HighContrastTheme.xaml"/>-->
-                    </ResourceDictionary.MergedDictionaries>
-                </ResourceDictionary>
-            </ResourceDictionary.MergedDictionaries>
+Logika podmiany stylu:
+1. Uszykowanie nowego ResourceDictionary z ustawieniem źróła na odpowiedni plik xaml
+    
+            var newDict = new ResourceDictionary();
+            newDict.Source = new Uri("Themes/LightTheme.xaml", UriKind.Relative);
 
-Jak widać dodany został kolejny poziom zagnieżdżenia słowników. Pozwala nam to na nadanie konkretnej nazwy dla tego słownika,
-a co ważniejsze, będziemy mogli łatwo czyścić jego zawartość i ustawiać nową.
+2. Wyczyszczenie zawartości słownika zasobów
+    
+            Application.Current.Resources.MergedDictionaries.Clear();
 
-Następnym krokiem będzie dodanie procedury, która ową podmianę zasobów będzie wykonywała. Procedurę należy umieścić w pliku
-App.xaml.cs. Procedura wygląda tak:
+3. Dodanie nowego słownika zasobów
+    
+            Application.Current.Resources.MergedDictionaries.Add(newDict);
 
 
-        public void ChangeTheme(string themeName)
-        {
-            if (themeName == "Light")
-            {
-                var resourceDictionary = Resources.MergedDictionaries[0];
-                if (resourceDictionary != null)
-                {
-                    resourceDictionary.MergedDictionaries.Clear();
-                    resourceDictionary.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("pack://application:,,,/Themes/LightTheme.xaml") });
-                }
-            }
-            else if (themeName == "Dark")
-            {
-                var resourceDictionary = Resources.MergedDictionaries[0];
-                if (resourceDictionary != null)
-                {
-                    resourceDictionary.MergedDictionaries.Clear();
-                    resourceDictionary.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("pack://application:,,,/Themes/HighContrastTheme.xaml") });
-                }
-            }
-        }
-
-Procedura odwołuje się po indeksie do konkretnego słownika zasobów. Jako, że w naszym programie mamy tylko jeden, bierzemy pierwszy.
-To, że dodaliśmy kolejny poziom zagnieżdżenia słowników sprawia, że nie musimy się zbytnio zastanawiać nad jego zawartością, możemy
-po prostu wyczyścić całą jego zawartość a następnie dodać nowy zasób.
 
 Warto zwrócić uwagę na strukturę ścieżki do pliku zasobów. WPF wymaga, by ścieżka taka była relatywna. W przypadku zasobów zawartych wewnątrz
-aplikacji jako nasze główne authority wskazujemy samą aplikację, stąd segment:
+aplikacji jako nasze główne authority wskazujemy samą aplikację, można to zdefiniować jako:
 
-application:
+resourceDictionary.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("pack://application:,,,/Themes/LightTheme.xaml") });
 
-następna część ścieżki wskazuje już na konkretny plik xaml.
+lub:
+
+resourceDictionary.MergedDictionaries.Add(new ResourceDictionary() { Source = new Uri("Themes/LightTheme.xaml", UriKind.Relative) });
+
 
 Mając procedurę musimy ją jeszcze wywołać. W tym celu dodajemy do głównego okna dwa radiobuttony:
 
@@ -74,7 +50,7 @@ Mając procedurę musimy ją jeszcze wywołać. W tym celu dodajemy do główneg
             <RadioButton Style="{StaticResource DefaultRadioButton}" GroupName="theme" Checked="RadioButton_Dark_Checked">Ciemny</RadioButton>
 
 
-Oraz obsługę ich zdarzeń:
+Oraz obsługę ich zdarzeń np jako:
 
 
         private void RadioButton_Light_Checked(object sender, RoutedEventArgs e)
@@ -88,3 +64,21 @@ Oraz obsługę ich zdarzeń:
             var app = (App)Application.Current;
             app.ChangeTheme("Dark");
         }
+
+
+lub używamy przycisku:
+
+<Button x:Name="ThemeButton" Content="Change Theme" Click="ThemeButton_Click"/>
+
+i sprawdzamy:
+
+            var oldDict = Application.Current.Resources.MergedDictionaries.First();
+            var newDict = new ResourceDictionary();
+            if (oldDict.Source.OriginalString == "Themes/LightTheme.xaml")
+            {
+                ...
+            }
+            else
+            {
+                ...
+            }
