@@ -1,0 +1,51 @@
+﻿<Window x:Class="ZadanieDomowe1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZadanieDomowe1"
+        mc:Ignorable="d"
+        Title="Nadaj przesyłkę" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <GroupBox Header="Rodzaj przesyłki" Margin="15" Padding="15">
+                <StackPanel>
+                    <RadioButton x:Name="rbPocztowka" GroupName="mail" IsChecked="True" Margin="5">Pocztówka</RadioButton>
+                    <RadioButton x:Name="rbList" GroupName="mail" Margin="5">List</RadioButton>
+                    <RadioButton x:Name="rbPaczka" GroupName="mail" Margin="5">Paczka</RadioButton>
+                </StackPanel>
+            </GroupBox>
+
+            <Button x:Name="btnSprawdzCene" Margin="15 0" Click="btnSprawdzCene_Click">Sprawdź cenę</Button>
+
+            <StackPanel Orientation="Horizontal" Margin="15">
+                <Image x:Name="imgIkona" Source="/Content/pocztowka.png" />
+                <Label x:Name="lbCena" FontSize="25" FontWeight="Bold">Cena: 1 zł</Label>
+            </StackPanel>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <GroupBox Header="Dane adresowe" Margin="15" Padding="15">
+                <StackPanel>
+                    <TextBlock>Ulica z numerem:</TextBlock>
+                    <TextBox x:Name="tbUlica" />
+                    <TextBlock>Kod pocztowy:</TextBlock>
+                    <TextBox x:Name="tbKod" />
+                    <TextBlock>Miasto:</TextBlock>
+                    <TextBox x:Name="tbMiast" />
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+
+        <Button x:Name="btnZatwierdz" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Click="btnZatwierdz_Click">Zatwierdź</Button>
+    </Grid>
+</Window>
