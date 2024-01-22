@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dokumenty", "Dokumenty", "{
 	ProjectSection(SolutionItems) = preProject
 		Dokumenty\Brak kontroloek w Toolboxie.txt = Dokumenty\Brak kontroloek w Toolboxie.txt
 		Dokumenty\Logowanie_VS_do_GIT.docx = Dokumenty\Logowanie_VS_do_GIT.docx
+		Dokumenty\NU1101.txt = Dokumenty\NU1101.txt
 		Dokumenty\Obsluga_GIT_z_VS.docx = Dokumenty\Obsluga_GIT_z_VS.docx
 		Dokumenty\Przygotowanie repozytorium.docx = Dokumenty\Przygotowanie repozytorium.docx
 		Dokumenty\VS_blank_solution.docx = Dokumenty\VS_blank_solution.docx
@@ -217,6 +218,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_03", "Etap_03", "{F4AB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rozwiazanie", "Rozwiazanie", "{D2148ADA-E655-43C4-A227-DADEFBC5F87C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp2", "Semestr 2\Projekt\Etap_03\Rozwiazanie\WpfApp2\WpfApp2.csproj", "{E5538ED2-7F89-4407-88C6-B234368DD2B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -371,6 +374,10 @@ Global
 		{15668EC7-3712-426C-B825-D7364A6491B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15668EC7-3712-426C-B825-D7364A6491B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15668EC7-3712-426C-B825-D7364A6491B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5538ED2-7F89-4407-88C6-B234368DD2B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5538ED2-7F89-4407-88C6-B234368DD2B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5538ED2-7F89-4407-88C6-B234368DD2B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5538ED2-7F89-4407-88C6-B234368DD2B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -445,6 +452,7 @@ Global
 		{15668EC7-3712-426C-B825-D7364A6491B0} = {9FF847F0-D20F-4E90-9278-5FA74F56B60C}
 		{F4ABB210-3E93-4B6C-8C08-0A1285B99948} = {62B73586-E8FA-43E4-8476-9E3760429D09}
 		{D2148ADA-E655-43C4-A227-DADEFBC5F87C} = {F4ABB210-3E93-4B6C-8C08-0A1285B99948}
+		{E5538ED2-7F89-4407-88C6-B234368DD2B1} = {D2148ADA-E655-43C4-A227-DADEFBC5F87C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1A0E135-6C1C-4384-8761-A8AF8E3EE9A3}
