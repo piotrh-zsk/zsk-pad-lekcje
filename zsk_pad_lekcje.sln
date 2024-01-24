@@ -229,7 +229,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rozwiazanie", "Rozwiazanie"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Zadanie domowe", "Zadanie domowe", "{345E4088-EA0C-49A9-BCC4-54CB87370864}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZadanieDomowe1", "Semestr 2\Lekcje\Zadanie domowe\ZadanieDomowe1\ZadanieDomowe1.csproj", "{ADC65976-ED4D-4188-9105-015404C17364}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZadanieDomowe1", "Semestr 2\Lekcje\Zadanie domowe\ZadanieDomowe1\ZadanieDomowe1.csproj", "{ADC65976-ED4D-4188-9105-015404C17364}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UstawianieObrazka", "UstawianieObrazka", "{98F3F22D-5C6C-4FBB-A721-B50E4863CFDC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UstawianieObrazka", "Semestr 2\Lekcje\UstawianieObrazka\UstawianieObrazka.csproj", "{9B6D3211-E7F4-49A8-8BD3-1355ABFC2BA6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp2", "Semestr 2\Projekt\Etap_04\Rozwiazanie\WpfApp2\WpfApp2.csproj", "{3F0636EF-D31B-4CC9-B161-24A30056B943}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -393,6 +399,14 @@ Global
 		{ADC65976-ED4D-4188-9105-015404C17364}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADC65976-ED4D-4188-9105-015404C17364}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADC65976-ED4D-4188-9105-015404C17364}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B6D3211-E7F4-49A8-8BD3-1355ABFC2BA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B6D3211-E7F4-49A8-8BD3-1355ABFC2BA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B6D3211-E7F4-49A8-8BD3-1355ABFC2BA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B6D3211-E7F4-49A8-8BD3-1355ABFC2BA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F0636EF-D31B-4CC9-B161-24A30056B943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F0636EF-D31B-4CC9-B161-24A30056B943}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F0636EF-D31B-4CC9-B161-24A30056B943}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F0636EF-D31B-4CC9-B161-24A30056B943}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -472,6 +486,9 @@ Global
 		{91D94D94-F85B-49E7-9D66-1F3A6B1D07BB} = {B04F710B-E0B6-4DAE-82F7-A7673FADCDE1}
 		{345E4088-EA0C-49A9-BCC4-54CB87370864} = {24BBA929-61C1-4826-A724-36A8F502F3A5}
 		{ADC65976-ED4D-4188-9105-015404C17364} = {345E4088-EA0C-49A9-BCC4-54CB87370864}
+		{98F3F22D-5C6C-4FBB-A721-B50E4863CFDC} = {24BBA929-61C1-4826-A724-36A8F502F3A5}
+		{9B6D3211-E7F4-49A8-8BD3-1355ABFC2BA6} = {98F3F22D-5C6C-4FBB-A721-B50E4863CFDC}
+		{3F0636EF-D31B-4CC9-B161-24A30056B943} = {91D94D94-F85B-49E7-9D66-1F3A6B1D07BB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1A0E135-6C1C-4384-8761-A8AF8E3EE9A3}
