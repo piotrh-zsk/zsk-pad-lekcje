@@ -85,5 +85,3 @@ i sprawdzamy:
 
 
 
-Bindowanie:
-https://www.c-sharpcorner.com/article/data-binding-its-modes-in-wpf/

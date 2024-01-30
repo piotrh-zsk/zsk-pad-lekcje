@@ -1,0 +1,119 @@
+
+
+Bindowanie:
+-----------
+
+https://www.c-sharpcorner.com/article/data-binding-its-modes-in-wpf/
+
+Powi¹zania okreœlone jako TwoWay albo OneWayToSource obserwuj¹ czy nastêpuj¹ jakieœ zmiany, a w przypadku wyst¹pienia zmian
+propaguj¹ je do wskazanego Ÿród³a. W przyk³adzie z powy¿szego linka zmieniaj¹c tekst w docelowym TextBoxie modyfikowany jest
+tekst w TextBoxie Ÿród³owym.
+
+Niemniej jednak, ta aktualizacja mo¿e zachowywaæ siê inaczej ni¿ w przypadku pozosta³ych powi¹zañ (bindingów). Niekoniecznie
+musi odbywaæ siê ona live i reagowaæ na ka¿de wciœniêcie klawisza. W zale¿noœci od kontrolki dzia³anie to mo¿e obywaæ siê
+dopiero na zdarzenie utraty Focusu. W przypadku TextBoxa jest to w³aœnie domyœlny tryb.
+
+W przyk³adzie z powy¿szego linka, aby aktualizacja Ÿród³a odbywa³a siê "live" skorzystano z w³aœciwoœci:
+
+UpdateSourceTrigger
+
+W³aœciwoœæ ta pozwala okreœliæ nam kiedy ma dochodziæ do aktualizacji Ÿród³a. W przyk³adzie skorzystano z tej w³aœciwoœci
+i ustawion¹ j¹ w tryb:
+
+PropertyChanged
+
+Takie ustawienie powoduje, ¿e Ÿród³o jest aktualizowane za ka¿dym razem, gdy w kontrolce zostaje wywo³ane powiadomienie
+o zmodyfikowaniu wartoœci. W praktyce, zdarzenie PropertyChanged jest wywo³ywane przy ka¿dej modyfikacji tekstu w TextBoxie,
+to z kolei powoduje, ¿e taka konfiguracja:
+
+Binding ElementName=SourceTextBox, Path=Text, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged
+
+aktualizuje Ÿród³o równie¿ przy ka¿dej modyfikacji teksu, uzyskuj¹c w ten sposób efekt aktaulizacji w czasie rzeczywistym.
+
+
+
+
+Bindowanie danych do pól w klasie:
+----------------------------------
+
+
+Przyjmijmy, ¿e mamy prost¹ klasê Person z w³aœciwoœci¹ Name, a nasze okno (MainWindow) bêdzie zawieraæ TextBox, który bêdzie
+zwi¹zany z t¹ w³aœciwoœci¹.
+
+Model (Person.cs):
+
+
+        using System.ComponentModel;
+
+        namespace TwojaPrzestrzenNazw
+        {
+            public class Person : INotifyPropertyChanged
+            {
+                private string _name;
+
+                public string Name
+                {
+                    get { return _name; }
+                    set
+                    {
+                        if (_name != value)
+                        {
+                            _name = value;
+                            OnPropertyChanged(nameof(Name));
+                        }
+                    }
+                }
+
+                public event PropertyChangedEventHandler PropertyChanged;
+
+                protected virtual void OnPropertyChanged(string propertyName)
+                {
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                }
+            }
+        }
+
+
+XAML (MainWindow.xaml):
+
+
+        <Window x:Class="TwojaPrzestrzenNazw.MainWindow"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:local="clr-namespace:TwojaPrzestrzenNazw"
+                mc:Ignorable="d"
+                Title="MainWindow" Height="350" Width="525">
+            <Grid>
+                <TextBox Text="{Binding Person.Name, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+        </Window>
+
+
+Kod-behind (MainWindow.xaml.cs):
+
+
+using System.Windows;
+
+namespace TwojaPrzestrzenNazw
+{
+    public partial class MainWindow : Window
+    {
+        public Person Person { get; set; }
+
+        public MainWindow()
+        {
+            InitializeComponent();
+            Person = new Person { Name = "John Doe" };
+            DataContext = this;
+        }
+    }
+}
+
+W tym przyk³adzie TextBox jest bezpoœrednio powi¹zany z w³aœciwoœci¹ Name obiektu Person. Dziêki UpdateSourceTrigger=PropertyChanged, ka¿da zmiana
+w TextBox natychmiast zaktualizuje w³aœciwoœæ Name obiektu Person.
+
+Przyk³adowe zastosowanie to edycja informacji o osobie w interfejsie u¿ytkownika, gdzie zmiany wprowadzone w TextBox s¹ odzwierciedlane w obiekcie
+Person w czasie rzeczywistym.
+

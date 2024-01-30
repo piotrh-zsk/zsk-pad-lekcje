@@ -237,6 +237,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UstawianieObrazka", "Semest
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp2", "Semestr 2\Projekt\Etap_04\Rozwiazanie\WpfApp2\WpfApp2.csproj", "{3F0636EF-D31B-4CC9-B161-24A30056B943}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_05", "Etap_05", "{0F7389DC-246F-4AC7-A116-25CD1373A419}"
+	ProjectSection(SolutionItems) = preProject
+		Semestr 2\Projekt\Etap_05\wytyczne.txt = Semestr 2\Projekt\Etap_05\wytyczne.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -489,6 +494,7 @@ Global
 		{98F3F22D-5C6C-4FBB-A721-B50E4863CFDC} = {24BBA929-61C1-4826-A724-36A8F502F3A5}
 		{9B6D3211-E7F4-49A8-8BD3-1355ABFC2BA6} = {98F3F22D-5C6C-4FBB-A721-B50E4863CFDC}
 		{3F0636EF-D31B-4CC9-B161-24A30056B943} = {91D94D94-F85B-49E7-9D66-1F3A6B1D07BB}
+		{0F7389DC-246F-4AC7-A116-25CD1373A419} = {62B73586-E8FA-43E4-8476-9E3760429D09}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1A0E135-6C1C-4384-8761-A8AF8E3EE9A3}
