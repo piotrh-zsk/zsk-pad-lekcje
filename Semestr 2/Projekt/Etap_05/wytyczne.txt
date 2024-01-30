@@ -117,3 +117,120 @@ w TextBox natychmiast zaktualizuje w³aœciwoœæ Name obiektu Person.
 Przyk³adowe zastosowanie to edycja informacji o osobie w interfejsie u¿ytkownika, gdzie zmiany wprowadzone w TextBox s¹ odzwierciedlane w obiekcie
 Person w czasie rzeczywistym.
 
+
+
+
+________________________________________________________________________________________________________________________________________________________________________________
+Konwertery danych
+
+Oto przyk³ady ró¿nych konwerterów danych w kontekœcie WPF:
+
+BooleanToVisibilityConverter:
+Konwertuje wartoœci typu bool na Visibility, umo¿liwiaj¹c kontrolowanie widocznoœci elementów interfejsu u¿ytkownika w zale¿noœci od wartoœci logicznej.
+
+
+    <Window.Resources>
+        <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
+
+    <TextBlock Visibility="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}" Text="Visible when IsVisible is true"/>
+
+ColorConverter:
+Konwerter do konwersji kolorów, przydatny do dynamicznego zarz¹dzania kolorami w interfejsie u¿ytkownika.
+
+
+    <TextBlock Foreground="{Binding Status, Converter={StaticResource StatusToColorConverter}}" Text="Status dependent color"/>
+
+StringFormatConverter:
+Konwerter do formatowania ci¹gów tekstowych z u¿yciem formatu.
+
+    <TextBlock Text="{Binding Date, Converter={StaticResource StringFormatConverter}, ConverterParameter='yyyy-MM-dd'}"/>
+
+EnumToBooleanConverter:
+Konwertuje wartoœci enum na wartoœci logiczne, co mo¿e byæ przydatne w przypadku sterowania widocznoœci¹ elementów w zale¿noœci od wartoœci enum.
+
+    <CheckBox IsChecked="{Binding MyEnumValue, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter={x:Static local:MyEnum.Value}}" Content="Show when MyEnumValue is MyEnum.Value"/>
+
+InverseBooleanConverter:
+Konwertuje wartoœæ bool na jej odwrotnoœæ.
+
+    <CheckBox IsChecked="{Binding IsEnabled, Converter={StaticResource InverseBooleanConverter}}" Content="Enable/Disable"/>
+
+MultiBindingConverter:
+Konwerter dla wielu wartoœci wejœciowych.
+
+    <TextBox>
+        <TextBox.Text>
+            <MultiBinding Converter="{StaticResource MultiBindingConverter}">
+                <Binding Path="FirstName"/>
+                <Binding Path="LastName"/>
+            </MultiBinding>
+        </TextBox.Text>
+    </TextBox>
+
+
+________________________________________________________________________________________________________________________________________________________________________________
+Animacje
+
+dodajmy sobie przyk³adowy prostok¹t do naszego stackpanelu:
+
+<Rectangle x:Name="animatedRectangle" Width="100" Height="50" Fill="Blue"/>
+
+w MainWindow.xaml.cs dodajemy funkcjê:
+
+private void StartAnimation()
+        {
+            // Tworzenie obiektu animacji
+            DoubleAnimation animation = new DoubleAnimation
+            {
+                From = 100, // Pocz¹tkowa wartoœæ
+                To = 300,   // Koñcowa wartoœæ
+                Duration = TimeSpan.FromSeconds(2), // Czas trwania animacji
+                AutoReverse = true, // Powrót do pocz¹tkowej wartoœci po zakoñczeniu
+                RepeatBehavior = RepeatBehavior.Forever // Powtarzanie animacji
+            };
+
+            // Rozpoczêcie animacji
+            animatedRectangle.BeginAnimation(Rectangle.WidthProperty, animation);
+        }
+
+i w konstruktorze MainWindow.xaml.cs na koñcu startujemy nasz¹ animacjê:
+
+StartAnimation();
+
+teraz dodamy konwerter:
+
+do funkcji StartAnimation() dodajemy:
+
+// Tworzenie obiektu animacji
+            DoubleAnimation animation2 = new DoubleAnimation
+            {
+                From = 50, // Pocz¹tkowa wartoœæ (szerokoœæ elipsy)
+                To = 200,  // Koñcowa wartoœæ (szerokoœæ elipsy)
+                Duration = TimeSpan.FromSeconds(2), // Czas trwania animacji
+                AutoReverse = true, // Powrót do pocz¹tkowej wartoœci po zakoñczeniu
+                RepeatBehavior = RepeatBehavior.Forever // Powtarzanie animacji
+            };
+
+            // Tworzenie konwertera danych do zmiany koloru elipsy na podstawie szerokoœci
+            var converter = new WidthToColorConverter();
+
+            // Dodanie konwertera do zasobów okna
+            Resources.Add("WidthToColorConverter", converter);
+
+            // Rozpoczêcie animacji
+            animatedEllipse.BeginAnimation(Ellipse.WidthProperty, animation2);
+
+            // U¿ycie konwertera do zmiany koloru elipsy na podstawie jej szerokoœci
+            Binding binding = new Binding("Width")
+            {
+                Source = animatedEllipse,
+                Converter = (IValueConverter)Resources["WidthToColorConverter"]
+            };
+
+            animatedEllipse.SetBinding(Ellipse.FillProperty, binding);
+
+
+            a w MainWindow.xaml dodajemy:
+
+            <Ellipse x:Name="animatedEllipse" Width="50" Height="50" Fill="Green"/>
