@@ -1,0 +1,95 @@
+Commands
+--------
+
+W ramach WPF, polecenia (Commands czyli implementacje interfejsu ICommand) s¹ obiektami reprezentuj¹cymi 
+akcje, które mo¿na wykonaæ w interfejsie u¿ytkownika. Polecenia umo¿liwiaj¹ odseparowanie logiki interfejsu 
+u¿ytkownika od jego prezentacji, co prowadzi do zwiêkszenia czytelnoœci i ³atwoœci zarz¹dzania kodem. 
+
+Polecenia mog¹ byæ wyzwalane przez ró¿ne zdarzenia, takie jak klikniêcie przycisku, a ich logika wykonawcza 
+mo¿e byæ zdefiniowana w oddzielnej klasie. Aby u¿ywaæ poleceñ w WPF, nale¿y przypisaæ je do elementów interfejsu 
+u¿ytkownika, takich jak przyciski, menu czy gesty u¿ytkownika, co pozwala na wykonywanie zdefiniowanych 
+akcji w responsywny sposób.
+
+
+Implementacja ICommand
+----------------------
+
+Aby u¿ywaæ polecenia, nale¿y zaimplementowaæ interfejs ICommand. Mo¿na to zrobiæ poprzez utworzenie 
+nowej klasy, która implementuje metody CanExecute i Execute.
+
+public class CustomCommand : ICommand
+{
+	public bool CanExecute(object parameter)
+	{
+    	// Logika okreœlaj¹ca, czy polecenie mo¿e zostaæ wykonane
+    	return true;
+	}
+	public void Execute(object parameter)
+	{
+    	// Logika wykonania polecenia
+	}
+	// Zdarzenie, które informuje o zmianach w mo¿liwoœci wykonania polecenia
+	public event EventHandler CanExecuteChanged;
+}
+
+
+Konfiguracja polecenia w interfejsie u¿ytkownika (XAML)
+-------------------------------------------------------
+
+W interfejsie u¿ytkownika, np. w pliku XAML, mo¿na skonfigurowaæ polecenie i przypisaæ je do odpowiedniej 
+kontrolki. U¿ywaj¹c Command i CommandParameter, mo¿na zdefiniowaæ, które polecenie ma zostaæ wykonane i 
+jakie parametry przekazaæ.
+
+<Button Content="Execute Command"
+    	Command="{Binding MyCommand}"
+    	CommandParameter="OptionalParameter" />
+
+
+Wi¹zanie polecenia z w³aœciwoœciami w ViewModel
+-----------------------------------------------
+
+W przypadku aplikacji WPF korzystaj¹cych z wzorca projektowego MVVM, polecenia s¹ zazwyczaj skonfigurowane i 
+zarz¹dzane w warstwie ViewModel. W tym miejscu mo¿na zainicjowaæ polecenie, obs³ugiwaæ jego logikê i aktualizowaæ 
+interfejs u¿ytkownika w zale¿noœci od jego stanu.
+
+public class MainViewModel : INotifyPropertyChanged
+{
+	private ICommand myCommand;
+	public ICommand MyCommand
+	{
+    	get
+    	{
+        	if (myCommand == null)
+        	{
+            	myCommand = new CustomCommand();
+        	}
+        	return myCommand;
+    	}
+	}
+	// Reszta logiki ViewModel
+}
+
+
+ZADANIA:
+--------
+--------
+
+1. Stworzenie prostego polecenia:
+Stwórz prost¹ aplikacjê WPF z przyciskiem. Napisz polecenie, które bêdzie wyœwietlaæ okno (MessageBox) z informacj¹ "Czeœæ!" 
+po naciœniêciu przycisku.
+
+2. Parametryzowanie polecenia:
+Rozszerz poprzednie zadanie, dodaj¹c pole tekstowe, które bêdzie s³u¿y³o jako parametr dla polecenia. Polecenie powinno teraz 
+wyœwietlaæ okno z napisem "Czeœæ, {nazwa u¿ytkownika}!", gdzie {nazwa u¿ytkownika} to wartoœæ wprowadzona przez u¿ytkownika.
+
+3. Przekazanie elementu interfejsu do polecenia:
+Dodaj do aplikacji WPF przycisk, który bêdzie uruchamia³ polecenie (command) po klikniêciu. Polecenie powinno zmieniaæ kolor t³a okna na czerwony kolor.
+
+4. Powi¹zanie poleceñ z kontrolkami:
+Stwórz dwa przyciski. Ka¿demu przyciskowi przypisz polecenie, które wyœwietla okno z napisem odpowiadaj¹cym nazwie przycisku. U¿yj 
+powi¹zania poleceñ w taki sposób, aby nie musieæ tworzyæ osobnego polecenia dla ka¿dego przycisku.
+
+5. Zadanie ogólne
+Stwórz na formatce dwa przyciski, nazwij je tak, by mo¿na by³o je rozró¿niæ. Pod przyciskami umieœæ TextBox. Stwórz jedno polecenie, które
+powi¹¿esz z obydwoma przyciskami. Oprogramuj polecenie w taki sposób, by wynikowo w TextBoxie prezentowana by³a informacja o tym ile
+razy poszczególny przycisk zosta³ wciœniêty. Na zasadzie: "Przycisk 1 - n-klikniêæ; Przycisk 2 - m-klikniêæ".

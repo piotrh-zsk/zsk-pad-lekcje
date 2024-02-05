@@ -246,6 +246,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rozwiazanie", "Rozwiazanie"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp3", "Semestr 2\Projekt\Etap_05\Rozwiazanie\WpfApp3\WpfApp3.csproj", "{A6820552-8023-4B13-9D65-57E19A4F721B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_06", "Etap_06", "{C13EF240-1F0B-43F3-A887-0BE0BA14AD96}"
+	ProjectSection(SolutionItems) = preProject
+		Semestr 2\Projekt\Etap_06\wytyczne.txt = Semestr 2\Projekt\Etap_06\wytyczne.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rozwiazanie", "Rozwiazanie", "{7E1872F9-A872-4AC4-8E8C-867366CF69A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -505,6 +512,8 @@ Global
 		{0F7389DC-246F-4AC7-A116-25CD1373A419} = {62B73586-E8FA-43E4-8476-9E3760429D09}
 		{9D6FB105-1907-4019-9DCA-D035E559538A} = {0F7389DC-246F-4AC7-A116-25CD1373A419}
 		{A6820552-8023-4B13-9D65-57E19A4F721B} = {9D6FB105-1907-4019-9DCA-D035E559538A}
+		{C13EF240-1F0B-43F3-A887-0BE0BA14AD96} = {62B73586-E8FA-43E4-8476-9E3760429D09}
+		{7E1872F9-A872-4AC4-8E8C-867366CF69A2} = {C13EF240-1F0B-43F3-A887-0BE0BA14AD96}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1A0E135-6C1C-4384-8761-A8AF8E3EE9A3}
