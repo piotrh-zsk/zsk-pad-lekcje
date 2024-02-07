@@ -253,6 +253,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_06", "Etap_06", "{C13E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rozwiazanie", "Rozwiazanie", "{7E1872F9-A872-4AC4-8E8C-867366CF69A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp4", "Semestr 2\Projekt\Etap_06\Rozwiązanie\WpfApp4\WpfApp4.csproj", "{B3A60D3A-31F8-488F-A71D-6E8F9C2E24A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -427,6 +429,10 @@ Global
 		{A6820552-8023-4B13-9D65-57E19A4F721B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6820552-8023-4B13-9D65-57E19A4F721B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6820552-8023-4B13-9D65-57E19A4F721B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3A60D3A-31F8-488F-A71D-6E8F9C2E24A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3A60D3A-31F8-488F-A71D-6E8F9C2E24A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3A60D3A-31F8-488F-A71D-6E8F9C2E24A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3A60D3A-31F8-488F-A71D-6E8F9C2E24A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -514,6 +520,7 @@ Global
 		{A6820552-8023-4B13-9D65-57E19A4F721B} = {9D6FB105-1907-4019-9DCA-D035E559538A}
 		{C13EF240-1F0B-43F3-A887-0BE0BA14AD96} = {62B73586-E8FA-43E4-8476-9E3760429D09}
 		{7E1872F9-A872-4AC4-8E8C-867366CF69A2} = {C13EF240-1F0B-43F3-A887-0BE0BA14AD96}
+		{B3A60D3A-31F8-488F-A71D-6E8F9C2E24A1} = {7E1872F9-A872-4AC4-8E8C-867366CF69A2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1A0E135-6C1C-4384-8761-A8AF8E3EE9A3}

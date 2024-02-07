@@ -1,0 +1,70 @@
+﻿<Window
+    x:Class="WpfApp1.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp1"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel
+            Margin="10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <!--  Zadanie 1  -->
+            <Button
+                Margin="5"
+                Command="{Binding SayHelloCommand}"
+                Content="Przywitaj" />
+
+            <!--  Zadanie 2  -->
+            <TextBox
+                x:Name="userNameTextBox"
+                Margin="5"
+                Text="Wpisz imię" />
+            <Button
+                Margin="5"
+                Command="{Binding SayHelloWithNameCommand}"
+                CommandParameter="{Binding Text, ElementName=userNameTextBox}"
+                Content="Przywitaj z imieniem" />
+
+            <!--  Zadanie 3  -->
+            <Button
+                Margin="5"
+                Command="{Binding ChangeBackgroundColorCommand}"
+                Content="Zmień kolor tła na czerwony" />
+
+            <!--  Zadanie 4  -->
+            <Button
+                Margin="5"
+                Command="{Binding DisplayButtonNameCommand}"
+                CommandParameter="Przycisk 1"
+                Content="Przycisk 1" />
+            <Button
+                Margin="5"
+                Command="{Binding DisplayButtonNameCommand}"
+                CommandParameter="Przycisk 2"
+                Content="Przycisk 2" />
+
+            <!--  Zadanie 5  -->
+            <Button
+                Margin="5"
+                Command="{Binding CountButtonClicksCommand}"
+                CommandParameter="Przycisk 1"
+                Content="Pierwszy przycisk" />
+            <Button
+                Margin="5"
+                Command="{Binding CountButtonClicksCommand}"
+                CommandParameter="Przycisk 2"
+                Content="Drugi przycisk" />
+            <TextBox
+                x:Name="clicksInfoTextBox"
+                Margin="5"
+                Text="{Binding ClicksInfo}" />
+
+        </StackPanel>
+    </Grid>
+</Window>
