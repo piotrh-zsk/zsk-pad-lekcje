@@ -1,0 +1,20 @@
+Stwórz aplikacjê, która bêdzie wygl¹da³a mniej wiêcej tak jak na zrzucie ekranu app_start.png oraz app_work.png
+
+Opis dzia³ania aplikacji:
+1. Przyciski "+1" oraz "-1" powinny modyfikowaæ wartoœæ prezentowan¹ w TextBoxie
+2. Obs³uga przycisków "+1" oraz "-1" powinna odbywaæ siê poprzez polecenia (Command)
+3. Obs³uga przycisku "Wyœwietl zegar" powinna byæ realizowana poprzez polecenie, które przyjmie dodatkowy parametr.
+   Do parametru powinna byæ przekazywana wartoœæ przesuniêcia GMT prezentowana w kontrolce TextBox.
+4. Po wciœniêciu przycisku "Wyœwietl zegar" powinien zaprezentowaæ siê zegar pokazuj¹cy rzeczywisty czas, z uwzglêdnieniem
+   godzinowego przesuniêcia GMT, okreœlonego w sekcji "Przesuniêcie GMT".
+5. TextBlock z nazw¹ zegara oraz rzeczywistym czasem powinien byæ ukryty do czasu wciœniêcia przycisku "Wyœwietl zegar".
+   Powinno byæ to zrealizowane poprzez zbindowanie parametru "Visibility" do wartoœci typu bool, we ViewModelu. Stwórz oraz
+   wykorzystaj Converter konwertuj¹cy wartoœæ typu bool na wartoœæ typu Visibility.
+6. TextBlock z czasem rzeczywistym powinien byæ zbindowany z polem typu DateTime we ViewModelu. Ustaw w bindowaniu formatowanie
+   tekstu tak, by godzina prezentowana by³a w formacie yyyy-MM-dd HH:mm:ss
+7. Dopisz drugi licznik odliczaj¹cy czas do egzaminu przyjmuj¹c datê egzaminu na 10.01.2025 godz 10:00.
+
+Stylowanie aplikacji:
+1. Stylowanie aplikacji powinno byæ zrealizowane przy pomocy stylów umieszczonych w pliku App.xaml
+2. Nazwa zegara oraz aktualny czas powinny byæ wyœwietlone w kontrolce typu TextBlock. Styl kontrolki prezentuj¹cej aktualny
+   czas powinien bazowaæ na stylu kontrolki prezentuj¹cej nazwê zegara

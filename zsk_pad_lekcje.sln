@@ -255,7 +255,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rozwiazanie", "Rozwiazanie"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp4", "Semestr 2\Projekt\Etap_06\Rozwiązanie\WpfApp4\WpfApp4.csproj", "{B3A60D3A-31F8-488F-A71D-6E8F9C2E24A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp5", "Semestr 2\Projekt\Etap_06\Rozwiązanie\WpfApp5\WpfApp5.csproj", "{D87C73FD-DE21-4A14-8975-5CD6F4B212B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp5", "Semestr 2\Projekt\Etap_06\Rozwiązanie\WpfApp5\WpfApp5.csproj", "{D87C73FD-DE21-4A14-8975-5CD6F4B212B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_07", "Etap_07", "{24396EE2-6A4B-494A-BC29-B86F8FA1E28B}"
+	ProjectSection(SolutionItems) = preProject
+		Semestr 2\Projekt\Etap_07\wytyczne.txt = Semestr 2\Projekt\Etap_07\wytyczne.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -528,6 +533,7 @@ Global
 		{7E1872F9-A872-4AC4-8E8C-867366CF69A2} = {C13EF240-1F0B-43F3-A887-0BE0BA14AD96}
 		{B3A60D3A-31F8-488F-A71D-6E8F9C2E24A1} = {7E1872F9-A872-4AC4-8E8C-867366CF69A2}
 		{D87C73FD-DE21-4A14-8975-5CD6F4B212B8} = {7E1872F9-A872-4AC4-8E8C-867366CF69A2}
+		{24396EE2-6A4B-494A-BC29-B86F8FA1E28B} = {62B73586-E8FA-43E4-8476-9E3760429D09}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1A0E135-6C1C-4384-8761-A8AF8E3EE9A3}
