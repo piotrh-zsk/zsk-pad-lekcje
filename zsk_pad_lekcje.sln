@@ -259,6 +259,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp5", "Semestr 2\Projek
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_07", "Etap_07", "{24396EE2-6A4B-494A-BC29-B86F8FA1E28B}"
 	ProjectSection(SolutionItems) = preProject
+		Semestr 2\Projekt\Etap_07\app_start.png = Semestr 2\Projekt\Etap_07\app_start.png
+		Semestr 2\Projekt\Etap_07\app_work.png = Semestr 2\Projekt\Etap_07\app_work.png
 		Semestr 2\Projekt\Etap_07\wytyczne.txt = Semestr 2\Projekt\Etap_07\wytyczne.txt
 	EndProjectSection
 EndProject
