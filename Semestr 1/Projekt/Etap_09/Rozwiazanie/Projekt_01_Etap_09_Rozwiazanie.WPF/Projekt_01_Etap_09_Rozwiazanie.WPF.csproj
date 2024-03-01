@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Projekt_01_Etap_09_Rozwiazanie.Core\Projekt_01_Etap_09_Rozwiazanie.Core.csproj" />
+    <ProjectReference Include="..\Projekt_01_Etap_09_Rozwiazanie.Shared\Projekt_01_Etap_09_Rozwiazanie.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

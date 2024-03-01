@@ -1,0 +1,47 @@
+﻿<Window x:Class="Projekt_01_Etap_10_Rozwiazanie.WPF.CompressForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekt_01_Etap_10_Rozwiazanie.WPF"
+        xmlns:viewModels="clr-namespace:Projekt_01_Etap_10_Rozwiazanie.WPF.ViewModels"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance viewModels:CompressFormViewModel, IsDesignTimeCreatable=True}"
+        Title="CompressForm" Height="635" Width="830">
+    <!--<Window.DataContext>
+        <viewModels:CompressFormViewModel />
+    </Window.DataContext>-->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="300" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Lewa kolumna -->
+        <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource DefaultBorder}">
+            <ScrollViewer>
+                <TextBlock Text="{Binding Compression_Codes}" Style="{StaticResource StatisticsTextBlock}"></TextBlock>
+            </ScrollViewer>
+        </Border>
+
+        <Button Grid.Row="2" Grid.Column="0" Grid.RowSpan="4" Command="{Binding CompressFileCommand}" Style="{StaticResource CompressButton}">Spakuj plik</Button>
+
+        <!-- Prawa kolumna -->
+        <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource DragDropBorder}"></Border>
+
+        <Label Grid.Row="2" Grid.Column="1" Style="{StaticResource FieldLabel}">Czas wyznaczania kodów:</Label>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Compression_CodesTime}" Style="{StaticResource FieldTextBox}"></TextBox>
+
+        <Label Grid.Row="4" Grid.Column="1" Style="{StaticResource FieldLabel}">Czas kompresji:</Label>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Compression_CompressionTime}" Style="{StaticResource FieldTextBoxWithMiniSpacer}"></TextBox>
+
+    </Grid>
+</Window>
