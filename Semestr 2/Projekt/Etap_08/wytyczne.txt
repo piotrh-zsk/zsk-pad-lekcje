@@ -1,0 +1,12 @@
+Aplikacja zawiera gotowy interfejs kalkulatora do liczb całkowitych. Korzystając z modelu MVVM uzupełnij aplikację o szereg poleceń (Commands), tak by kalkulator faktycznie działał.
+Aplikacja powinna zawierać ViewModel. Powinna korzystać z Commands oraz parametrów do Commands.
+Wciskanie kolejnych cyfr oraz poleceń powinno budować zapis całości działań, na przykład wciskając przycisk 1, następnie przycisk +, następnie przycisk 7, następnie przycisk dzielenia “/” a na końcu przycisk 5, w na ekranie aplikacji powinniśmy uzyskać ciąg:
+        1+7/5
+
+Wciśnięcie przycisku “=” powinno wyzwolić polecenie, które obliczy wynik. Do wykonania obliczeń możesz skorzystać na przykład z metody “Compute” obiektu DataTable:
+DataTable dt = new DataTable();
+
+var result = dt.Compute(moj_string_z_ciagiem_polecen, "");
+
+Zabezpiecz aplikację tak, by nie można było wprowadzić na ekran dwóch operatorów działań pod rząd, np: 1+*0
+Wciśnięcie przycisku “C” powinno czyścić ekran
