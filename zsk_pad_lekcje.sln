@@ -288,6 +288,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rozwiazanie", "Rozwiazanie"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp6", "Semestr 2\Projekt\Etap_08\Rozwiazanie\WpfApp6\WpfApp6.csproj", "{433D0D0F-1547-4B6E-8486-8177461F7E06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp7_NET8", "Semestr 2\Projekt\Etap_08\Rozwiazanie\WpfApp7_NET8\WpfApp7_NET8.csproj", "{3EB23EB9-DBD3-4B5B-B56B-01E10C69E341}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -494,6 +496,10 @@ Global
 		{433D0D0F-1547-4B6E-8486-8177461F7E06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{433D0D0F-1547-4B6E-8486-8177461F7E06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{433D0D0F-1547-4B6E-8486-8177461F7E06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EB23EB9-DBD3-4B5B-B56B-01E10C69E341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EB23EB9-DBD3-4B5B-B56B-01E10C69E341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EB23EB9-DBD3-4B5B-B56B-01E10C69E341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EB23EB9-DBD3-4B5B-B56B-01E10C69E341}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -594,6 +600,7 @@ Global
 		{B8AFB453-DB0C-41ED-B85A-27A6CE695E58} = {62B73586-E8FA-43E4-8476-9E3760429D09}
 		{7F9F1356-9DFF-43BA-89FE-E1C2DF2D5F81} = {B8AFB453-DB0C-41ED-B85A-27A6CE695E58}
 		{433D0D0F-1547-4B6E-8486-8177461F7E06} = {7F9F1356-9DFF-43BA-89FE-E1C2DF2D5F81}
+		{3EB23EB9-DBD3-4B5B-B56B-01E10C69E341} = {7F9F1356-9DFF-43BA-89FE-E1C2DF2D5F81}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1A0E135-6C1C-4384-8761-A8AF8E3EE9A3}
