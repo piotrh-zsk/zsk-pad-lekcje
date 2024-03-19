@@ -1,0 +1,27 @@
+W folderze znajduje sie aplikacja obs³uguj¹ca drukarkê. WyobraŸ sobie, ¿e jest to aplikacja rozwiajana od bardzo dawna,
+w dodatku aktywnie dzia³aj¹ca i u¿ywana w firmie. Do tej pory firma u¿ywa³a jedynie urz¹dzeñ wielofunkcyjnych
+posiadaj¹cych pe³en zakres funkcjonalnoœci. Drukowanie jedno i dwustronne, skanowanie, wysy³anie email z zeskanowan¹
+zawartoœci¹, faksowanie, kserowanie. Firma postanowi³a zakupiæ jednak kilka biurkowych drukarek, które posiadaja znacznie
+mniej funkcjonalnoœci. Potrafi¹ jedynie drukowaæ i skanowaæ.
+
+Jak widzisz, obecna wersja aplikacji nie zosta³a sensownie zaprojektowana i dostosowanie jej do tego typu drukarek
+jest raczej karko³omne.
+
+Zmodyfikuj aplikacjê (dodaj, poprzenoœæ kod, itp.) tak by implementowa³a poni¿sze zasady SOLID.
+Nie poœwiêcaj czasu na tworzenie faktycznie dzia³aj¹cego kodu. Utworzone klasy powinny zawieraæ jedynie procedury
+z parametrami, cia³o procedury mo¿e zawieraæ jedynie komentarz z opisem co teoretycznie powinno siê dziaæ wewn¹trz
+procedury.
+
+1. Podziel kod w taki sposób, aby zrealizowana zosta³a zasada SRP - zasada pojedynczej odpowiedzialnoœci
+
+2. Podziel kod w taki sposób, aby zrealizowana zosta³a zasada ISP - zasada segregacji interfejsów
+
+3. Przyjmijmy, ¿e w programie zaimplementowano mechanizm Dependency Injection, który wstrzykuje zale¿noœci poprzez konstruktor.
+Dziel¹c kod aplikacji miej na uwadze mo¿liwoœci jakie daje ten mechanizm i zapewnij, ¿e nie bêdzie ³amana
+zasada DIP - zasada odrócenia zale¿noœci
+
+4. Obecnie wysy³ka maila mo¿e odbywaæ siê przy wykorzystaniu jednego z dwóch protoko³ów poczty. Rozwiniêto jednak
+tê funkcjonalnoœæ o mo¿liwoœæ wysy³ania maila za poœrednictwem w³asnej us³ugi. W obecnej chwili nie jest mo¿liwe
+rozszerzenie aplikacji w taki sposób, aby nie zosta³a z³amana zasada OCP - zasada otwarte-zamkniête. Zmodyfukuj
+kod w taki sposób, ale przysz³oœciowo mo¿liwe by³o dodanie nowego sposobu wysy³ania maili przy wykorzystaniu nowych
+protoko³ów
