@@ -1,0 +1,34 @@
+Plik liczby.txt posiada wiersze z zapisanymi liczbami oddzielonymi od siebie œrednikiem:
+
+10;2
+15;13
+100;23
+
+Stwórz program, który:
+- bêdzie posiada³ kontrolkê umo¿liwiaj¹c¹ wyœwietlanie tekstu w wielu wierszach
+- przycisk "Oblicz"
+- dwie kontrolki typu RadioButton o treœci "Dodawanie" oraz "Odejmowanie"
+
+Korzystaj¹c z dotychczasowej wiedzy uzupe³nij program o logikê, która w zale¿noœci od zaznaczonej
+opcji w kontrolkach RadioButton odpowiednio wyœwietli wynik dzia³ania dla ka¿dego rekordu. Tj. dla
+powy¿szego przyk³adu:
+
+Opcja "dodawanie":
+12
+28
+123
+
+Opcja "odejmowanie":
+8
+2
+77
+
+Program powinien:
+- korzystaæ z modelu ViewModel
+- korzystaæ z poleceñ Command
+- dzieliæ logikê na logiczne serwisy oraz luŸno wi¹zaæ kod poprzez abstrakcje (interfejsy)
+
+Miej na uwadze, ¿e dodawanie i odejmowanie jest jedynie przyk³adem dzia³añ. Miej na uwadze, ¿e
+w przysz³oœci ktoœ mo¿e zleciæ rozwiniêcie programu o dodatkowe, byæ mo¿e bardziej skomplikowane
+dzia³ania na tych liczbach. Zaprojektuj aplikacjê w taki sposób, by zapewniæ przysz³oœciowo
+mo¿liwoœæ "bezbolesnego" rozwiniêcia aplikacji.

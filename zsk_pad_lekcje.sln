@@ -299,6 +299,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_09", "Etap_09", "{2D35
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOLIDapp", "Semestr 2\Projekt\Etap_09\SOLIDapp\SOLIDapp.csproj", "{31667BF0-1EC8-40D1-9203-7C877885ACA5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Etap_10", "Etap_10", "{AF284AAC-BC28-4C0B-B04E-F7C1B6ED9B0D}"
+	ProjectSection(SolutionItems) = preProject
+		Semestr 2\Projekt\Etap_10\liczby.txt = Semestr 2\Projekt\Etap_10\liczby.txt
+		Semestr 2\Projekt\Etap_10\wytyczne.txt = Semestr 2\Projekt\Etap_10\wytyczne.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -616,6 +622,7 @@ Global
 		{3EB23EB9-DBD3-4B5B-B56B-01E10C69E341} = {7F9F1356-9DFF-43BA-89FE-E1C2DF2D5F81}
 		{2D35112E-1CD4-4229-82E7-CD60EF499ACA} = {62B73586-E8FA-43E4-8476-9E3760429D09}
 		{31667BF0-1EC8-40D1-9203-7C877885ACA5} = {2D35112E-1CD4-4229-82E7-CD60EF499ACA}
+		{AF284AAC-BC28-4C0B-B04E-F7C1B6ED9B0D} = {62B73586-E8FA-43E4-8476-9E3760429D09}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D1A0E135-6C1C-4384-8761-A8AF8E3EE9A3}
